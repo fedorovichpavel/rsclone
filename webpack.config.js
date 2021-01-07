@@ -9,7 +9,7 @@ const dev = 'development';
 module.exports = {
     mode: dev,
     entry: {
-        main: path.resolve(__dirname, './src/script/index.ts'),
+        main: path.resolve(__dirname, './src/script/index.js'),
     },
     plugins: [
         new HtmlWebpackPlugin({
