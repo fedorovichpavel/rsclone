@@ -15,6 +15,5 @@ export default class MainmMenu extends Phaser.Scene {
 
   create() {
     this.background = this.add.tileSprite(0, 0, 220, 460, 'defaultScreen').setOrigin(0, 0);
-    
   }
 }
