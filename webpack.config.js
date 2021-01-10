@@ -9,7 +9,7 @@ const dev = 'development';
 module.exports = {
     mode: dev,
     entry: {
-        main: path.resolve(__dirname, './src/script/index.js'),
+        main: path.resolve(__dirname, './src/script/index.ts'),
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -43,8 +43,9 @@ module.exports = {
         rules: [
             {
                 test: /\.tsx?$/,
-                exclude: /node_modules/,
                 use: ['babel-loader', 'ts-loader'],
+                exclude: /node_modules/,
+
             },
             {
                 test: /\.(ogg|mp3|wav|mpe?g)$/i,

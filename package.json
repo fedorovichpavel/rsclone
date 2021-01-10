@@ -8,7 +8,8 @@
     "build": "webpack",
     "start": "webpack serve",
     "lint": "eslint --debug src/script/**/*.ts",
-    "lint:write": "eslint --debug src/script/**/*.ts --fix"
+    "lint:writeTS": "eslint --debug src/script/**/*.ts --fix",
+    "lint:writeJS": "eslint --debug src/script/**/*.js --fix"
   },
   "repository": {
     "type": "git",
