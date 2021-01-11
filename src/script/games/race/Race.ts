@@ -137,7 +137,7 @@ export default class Race extends Phaser.Scene {
     this.Memory.setPrevGame('RaceGame');
     this.scene.pause();
     setTimeout(() => {
-      this.scene.launch('GameOver');
+      this.scene.restart(this);
     }, 500);
   }
 }

@@ -1,19 +1,37 @@
 import * as Phaser from 'phaser';
+// @ts-ignore
+import Memory from '../Memory.ts';
+// @ts-ignore
+import CustomButton from '../buttons/CustomButton.ts';
 
-const defaultScreen = require('../../../assets/image/screen.png');
-
-export default class MainmMenu extends Phaser.Scene {
+export default class MainMenu extends Phaser.Scene {
   private background: Phaser.GameObjects.TileSprite;
+
+  private text: Phaser.GameObjects.Text;
+
+  private Memory: Memory;
 
   constructor() {
     super('MainMenu');
-  }
-
-  preload() {
-    this.load.image('defaultScreen', defaultScreen);
+    this.Memory = new Memory();
   }
 
   create() {
     this.background = this.add.tileSprite(0, 0, 220, 460, 'defaultScreen').setOrigin(0, 0);
+    this.text = this.add.text(0, 45, 'TETRIS',
+      {
+        fontFamily: 'Pixel',
+        color: '#000000',
+        fontSize: '39px',
+      });
+    this.text.x = (this.Memory.getConfig().width - this.text.width) / 2;
+
+    const btnRaceGame = new CustomButton(this, 110, 135, 'Race game');
+    this.add.existing(btnRaceGame);
+
+    btnRaceGame.setInteractive()
+      .on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN, () => {
+        this.scene.start('RaceGame');
+      });
   }
 }

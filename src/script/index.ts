@@ -8,6 +8,8 @@ import Preload from './games/Preload.ts';
 import GameOver from './games/GameOver.ts';
 // @ts-ignore
 import Memory from './games/Memory.ts';
+// @ts-ignore
+import MainMenu from './games/menu/MainMenu.ts';
 
 const config = {
   type: Phaser.WEBGL,
@@ -17,7 +19,7 @@ const config = {
   width: 220,
   height: 460,
   parent: 'game',
-  scene: [Preload, Race, GameOver],
+  scene: [Preload, MainMenu, Race, GameOver],
 };
 
 const memory = new Memory();

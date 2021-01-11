@@ -8,7 +8,12 @@ export default class Memory {
 
   private prevGame: string;
 
-  private config: {};
+  private config: { type: number,
+                    physics: {default: string},
+                    width: number,
+                    height: number,
+                    parent: string,
+                    scene: any[] };
 
   constructor() {
     if (Memory.exists) return Memory.instance;
@@ -36,7 +41,8 @@ export default class Memory {
     this.prevGame = string;
   }
 
-  setConfig(config) {
+  setConfig(config: {type: number, physics: {default: string},
+    width: number, height: number, parent: string, scene: any[]}) {
     this.config = config;
   }
 }
