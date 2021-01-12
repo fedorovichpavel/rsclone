@@ -19,6 +19,8 @@ export default class Preload extends Phaser.Scene {
     this.load.image('carPlayer', carPlayer);
     this.load.image('btnNoActive', btnNoActive);
     this.load.image('btnActive', btnActive);
+
+    // Ваши картинки все
     this.create();
   }
 

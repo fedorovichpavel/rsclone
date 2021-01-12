@@ -1,11 +1,11 @@
 import * as Phaser from 'phaser';
 
-export default class CastomButton extends Phaser.GameObjects.Container {
-  private overImage: Phaser.GameObjects.Image;
+export default class CustomButton extends Phaser.GameObjects.Container {
+  private readonly overImage: Phaser.GameObjects.Image;
 
-  private hoverImage: Phaser.GameObjects.Image;
+  private readonly hoverImage: Phaser.GameObjects.Image;
 
-  private textBtn: Phaser.GameObjects.Text;
+  private readonly textBtn: Phaser.GameObjects.Text;
 
   constructor(scene: Phaser.Scene, x: number, y: number,
     text: string) {

@@ -15,6 +15,9 @@ const config = {
   type: Phaser.WEBGL,
   physics: {
     default: 'arcade',
+    /* arcade: {
+      debug: true,
+    }, */
   },
   width: 220,
   height: 460,

@@ -11,7 +11,7 @@ const style = {
 export default class Race extends Phaser.Scene {
   private speed: number;
 
-  private movementPX: number;
+  private readonly movementPX: number;
 
   private arrEnemyCar: Array<Phaser.Types.Physics.Arcade.SpriteWithDynamicBody>;
 
@@ -32,13 +32,13 @@ export default class Race extends Phaser.Scene {
   constructor() {
     super('RaceGame');
     this.Memory = new Memory();
-    this.speed = 5;
     this.movementPX = 60;
-    this.arrEnemyCar = [];
-    this.score = 0;
   }
 
   create() {
+    this.arrEnemyCar = [];
+    this.score = 0;
+    this.speed = 5;
     this.road = this.add.tileSprite(0, 0, 220, 460, 'background').setOrigin(0, 0);
     this.car = this.physics.add.sprite(21, 370, 'carPlayer').setOrigin(0, 0);
     this.cursors = this.input.keyboard.createCursorKeys();
@@ -51,7 +51,7 @@ export default class Race extends Phaser.Scene {
     this.road.tilePositionY -= this.speed;
     this.moveCarLeftAndRight();
     this.moveEnemyCar();
-    this.upOrDownSpeed();
+    this.updateSpeed();
     this.tableScore.text = `Score:${this.score}`;
   }
 
@@ -73,18 +73,6 @@ export default class Race extends Phaser.Scene {
     }
   }
 
-  upOrDownSpeed() {
-    if (this.cursors.up.isDown) {
-      this.cursors.up.isDown = false;
-      this.speed += 1;
-    }
-
-    if (this.cursors.down.isDown) {
-      this.cursors.down.isDown = false;
-      this.speed -= 1;
-    }
-  }
-
   // eslint-disable-next-line class-methods-use-this
   coinToss() {
     return Math.floor(Math.random() * 3);
@@ -94,7 +82,7 @@ export default class Race extends Phaser.Scene {
     let x;
     let y;
     for (let i = 0; i < 5; i += 1) {
-      y = -190 * (i + 1);
+      y = -200 * (i + 1);
       x = this.px();
       this.arrEnemyCar.push(this.physics.add.sprite(x, y, 'car').setOrigin(0, 0));
     }
@@ -124,7 +112,7 @@ export default class Race extends Phaser.Scene {
   moveEnemyCar() {
     for (let i = 0; i < this.arrEnemyCar.length; i += 1) {
       if (this.arrEnemyCar[i].y > 560) {
-        this.score += (this.speed - 4);
+        this.score += this.speed;
         this.arrEnemyCar[i].x = this.px();
         this.arrEnemyCar[i].y = -560;
       }
@@ -133,11 +121,51 @@ export default class Race extends Phaser.Scene {
   }
 
   gameOver() {
+    this.scene.pause();
     this.Memory.setScorePoint(this.score);
     this.Memory.setPrevGame('RaceGame');
-    this.scene.pause();
     setTimeout(() => {
       this.scene.restart(this);
+      this.scene.stop();
+      this.scene.start('GameOver');
     }, 500);
+  }
+
+  private updateSpeed() {
+    // eslint-disable-next-line default-case
+    switch (this.score) {
+      case 150:
+        this.score += 1;
+        this.speed += 1;
+        break;
+      case 301:
+        this.score += 1;
+        this.speed += 1;
+        break;
+      case 449:
+        this.score += 1;
+        this.speed += 1;
+        break;
+      case 602:
+        this.score += 1;
+        this.speed += 1;
+        break;
+      case 756:
+        this.score += 1;
+        this.speed += 1;
+        break;
+      case 907:
+        this.score += 1;
+        this.speed += 1;
+        break;
+      case 1051:
+        this.score += 1;
+        this.speed += 1;
+        break;
+      case 1292:
+        this.score += 1;
+        this.speed += 1;
+        break;
+    }
   }
 }
