@@ -1,4 +1,6 @@
 import * as Phaser from 'phaser';
+// eslint-disable-next-line import/extensions
+import { Swipe } from 'phaser3-rex-plugins/plugins/gestures.js';
 // @ts-ignore
 import Memory from '../Memory.ts';
 
@@ -29,6 +31,8 @@ export default class Race extends Phaser.Scene {
 
   private tableScore: Phaser.GameObjects.Text;
 
+  private swipe: Swipe;
+
   constructor() {
     super('RaceGame');
     this.Memory = new Memory();
@@ -39,6 +43,7 @@ export default class Race extends Phaser.Scene {
     this.arrEnemyCar = [];
     this.score = 0;
     this.speed = 5;
+    this.swipe = new Swipe(this);
     this.road = this.add.tileSprite(0, 0, 220, 460, 'background').setOrigin(0, 0);
     this.car = this.physics.add.sprite(21, 370, 'carPlayer').setOrigin(0, 0);
     this.cursors = this.input.keyboard.createCursorKeys();
@@ -56,7 +61,7 @@ export default class Race extends Phaser.Scene {
   }
 
   moveCarLeftAndRight() {
-    if (this.cursors.right.isDown) {
+    if (this.cursors.right.isDown || this.swipe.right) {
       this.cursors.right.isDown = false;
 
       if (this.car.x !== 141) {
@@ -64,7 +69,7 @@ export default class Race extends Phaser.Scene {
       }
     }
 
-    if (this.cursors.left.isDown) {
+    if (this.cursors.left.isDown || this.swipe.left) {
       this.cursors.left.isDown = false;
 
       if (this.car.x !== 21) {

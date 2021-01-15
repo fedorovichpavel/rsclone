@@ -1,6 +1,9 @@
 import '../styles/style.scss';
 import * as Phaser from 'phaser';
 // @ts-ignore
+// eslint-disable-next-line import/extensions
+import GesturesPlugin from 'phaser3-rex-plugins/plugins/gestures-plugin.js';
+// @ts-ignore
 import Race from './games/race/Race.ts';
 // @ts-ignore
 import Preload from './games/Preload.ts';
@@ -10,6 +13,7 @@ import GameOver from './games/GameOver.ts';
 import Memory from './games/Memory.ts';
 // @ts-ignore
 import MainMenu from './games/menu/MainMenu.ts';
+// eslint-disable-next-line import/extensions
 
 const config = {
   type: Phaser.WEBGL,
@@ -19,6 +23,13 @@ const config = {
       debug: true,
     }, */
   },
+  plugins: {
+    scene: [{
+      key: 'rexGestures',
+      plugin: GesturesPlugin,
+      mapping: 'rexGestures',
+    }],
+  },
   width: 220,
   height: 460,
   parent: 'game',
@@ -27,5 +38,4 @@ const config = {
 
 const memory = new Memory();
 memory.setConfig(config);
-// eslint-disable-next-line no-new
-new Phaser.Game(config);
+export default new Phaser.Game(config);
