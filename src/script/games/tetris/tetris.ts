@@ -207,7 +207,7 @@ export default class Tetris extends Phaser.Scene {
     let pressNum = 1;
     item.getChildren().forEach((e) => {
       const xRound = (Math.round(e.x / 10));
-      e.x = xRound % 2 !== 0 ? xRound : (xRound + pressNum) * 10;
+      e.x = (xRound % 2 !== 0 ? xRound : xRound + pressNum) * 10;
       const yRound = Math.round(e.y / 10);
       e.y = (yRound % 2 !== 0 ? yRound : yRound + pressNum) * 10;
     });
