@@ -40,5 +40,13 @@ export default class MainMenu extends Phaser.Scene {
       .on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN, () => {
         this.scene.start('tetris');
       });
+
+    const btnSnakeGame = new CustomButton(this, 110, 235, 'Snake game');
+    this.add.existing(btnSnakeGame);
+
+    btnSnakeGame.setInteractive()
+      .on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN, () => {
+        this.scene.start('SnakeGame');
+      });
   }
 }

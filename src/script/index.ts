@@ -8,6 +8,8 @@ import Race from './games/race/Race.ts';
 // @ts-ignore
 import Tetris from './games/tetris/tetris.ts';
 // @ts-ignore
+import Snake from './games/snake/snake.ts';
+// @ts-ignore
 import Preload from './games/Preload.ts';
 // @ts-ignore
 import GameOver from './games/GameOver.ts';
@@ -35,7 +37,7 @@ const config = {
   width: 220,
   height: 460,
   parent: 'game',
-  scene: [Preload, MainMenu, Race, Tetris, GameOver],
+  scene: [Preload, MainMenu, Race, Tetris, Snake, GameOver],
 };
 
 const memory = new Memory();
