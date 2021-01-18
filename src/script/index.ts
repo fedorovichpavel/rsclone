@@ -6,6 +6,8 @@ import GesturesPlugin from 'phaser3-rex-plugins/plugins/gestures-plugin.js';
 // @ts-ignore
 import Race from './games/race/Race.ts';
 // @ts-ignore
+import Tetris from './games/tetris/tetris.ts';
+// @ts-ignore
 import Preload from './games/Preload.ts';
 // @ts-ignore
 import GameOver from './games/GameOver.ts';
@@ -33,7 +35,7 @@ const config = {
   width: 220,
   height: 460,
   parent: 'game',
-  scene: [Preload, MainMenu, Race, GameOver],
+  scene: [Preload, MainMenu, Race, Tetris, GameOver],
 };
 
 const memory = new Memory();
