@@ -122,7 +122,6 @@ export default class Breakout extends Phaser.Scene {
     }
 
     if (this.cursors.left.isDown) {
-      // this.cursors.left.isDown = false;
       if (this.paddle.x > 50) {
         this.paddle.setVelocityX(-500);
       }

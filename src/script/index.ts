@@ -10,6 +10,8 @@ import Tetris from './games/tetris/tetris.ts';
 // @ts-ignore
 import Breakout from './games/breakout/breakout.ts';
 // @ts-ignore
+import SpaceAttack from './games/space-attack/space-attack.ts';
+// @ts-ignore
 import Preload from './games/Preload.ts';
 // @ts-ignore
 import GameOver from './games/GameOver.ts';
@@ -37,7 +39,7 @@ const config = {
   width: 220,
   height: 460,
   parent: 'game',
-  scene: [Preload, MainMenu, Race, Tetris, Breakout, GameOver],
+  scene: [Preload, MainMenu, Race, Tetris, Breakout, SpaceAttack, GameOver],
 };
 
 const memory = new Memory();
