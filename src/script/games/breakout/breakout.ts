@@ -50,7 +50,6 @@ export default class Breakout extends Phaser.Scene {
     this.physics.add.collider(this.ball, this.bricks, this.hitBrick, null, this);
     this.physics.add.collider(this.ball, this.paddle, this.hitPaddle, null, this);
 
-
     this.input.on('pointermove', function pMove(pointer) {
       this.paddle.x = Phaser.Math.Clamp(pointer.x, 40, 180);
 

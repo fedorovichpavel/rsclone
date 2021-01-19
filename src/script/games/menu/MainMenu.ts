@@ -48,14 +48,11 @@ export default class MainMenu extends Phaser.Scene {
         this.scene.start('breakout');
       });
 
-
-
-      const btnspaceAttackGame = new CustomButton(this, 110, 335, 'Space attack');
+    const btnspaceAttackGame = new CustomButton(this, 110, 335, 'Space attack');
     this.add.existing(btnspaceAttackGame);
     btnspaceAttackGame.setInteractive()
       .on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN, () => {
         this.scene.start('spaceAttack');
       });
-
   }
 }

@@ -49,45 +49,43 @@ export default class Breakout extends Phaser.Scene {
     this.bullets = this.physics.add.group();
     this.bricks = this.physics.add.group();
     this.speed = 5;
+    // eslint-disable-next-line
     this.physics.add.collider(this.bullets.getChildren(), this.bricks.getChildren(), this.hitBrick, null, this);
     this.physics.add.collider(this.bricks, this.border, this.gameOver, null, this);
-      this.time.addEvent({
+    this.time.addEvent({
       delay: 300,
       callback: this.bricksGen,
       callbackScope: this,
-      loop: true
+      loop: true,
     });
 
     this.input.on('pointermove', function pMove(pointer) {
       this.ship.x = Phaser.Math.Clamp(pointer.x, 10, 210);
     }, this);
-
-
   }
 
   update() {
     this.tableScore.text = `Score:${this.score}`;
     this.move();
     this.bulletStrike();
-      this.checkLevel();
+    this.checkLevel();
 
     if (this.input.activePointer.isDown) {
       this.bulletGen();
     }
   }
 
-addText(stage) {
+  addText(stage) {
     const text = this.add.text(40, 200, `Stage ${stage}`,
-    {
-      fontFamily: 'Pixel',
-      color: '#000000',
-      fontSize: '39px',
-    });
+      {
+        fontFamily: 'Pixel',
+        color: '#000000',
+        fontSize: '39px',
+      });
     setTimeout(() => text.destroy(), 2500);
   }
 
   checkLevel() {
-
     if (this.score === 450) {
       this.bricks.getChildren().forEach((e:Phaser.GameObjects.GameObject) => e.destroy());
       this.bullets.getChildren().forEach((e:Phaser.GameObjects.GameObject) => e.destroy());
@@ -198,18 +196,18 @@ addText(stage) {
   }
 
   bulletStrike() {
-    this.bullets.getChildren().forEach((e:Phaser.GameObjects.Sprite)=> e.y -= 15);
-    this.bullets.getChildren().forEach((e:Phaser.GameObjects.Sprite)=>{
-        if (e.y < 0) {
-          e.destroy();
-        }
+    this.bullets.getChildren().forEach((e:Phaser.GameObjects.Sprite) => { e.y -= 15; });
+    this.bullets.getChildren().forEach((e:Phaser.GameObjects.Sprite) => {
+      if (e.y < 0) {
+        e.destroy();
+      }
     });
   }
 
   bulletGen() {
     const xCoord = this.ship.x;
     const yCoord = this.ship.y;
-    this.bullets.create(xCoord, yCoord - 20, 'ball').setScale(.5);
+    this.bullets.create(xCoord, yCoord - 20, 'ball').setScale(0.5);
   }
 
   bricksGen() {
@@ -219,22 +217,18 @@ addText(stage) {
   }
 
   move() {
-    if (this.cursors.left.isDown){
+    if (this.cursors.left.isDown) {
       if (this.ship.x !== 10) {
         this.ship.x -= this.speed;
       }
-    }
-    else if (this.cursors.right.isDown){
+    } else if (this.cursors.right.isDown) {
       if (this.ship.x !== 210) {
         this.ship.x += this.speed;
       }
-
     }
 
     if (this.cursors.space.isDown) {
-        this.bulletGen();
-        console.log(this.input);
+      this.bulletGen();
     }
   }
-
 }
