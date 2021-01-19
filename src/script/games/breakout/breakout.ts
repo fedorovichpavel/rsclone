@@ -25,18 +25,21 @@ export default class Breakout extends Phaser.Scene {
 
   private cursors: Phaser.Types.Input.Keyboard.CursorKeys;
 
+  private punchSound: Phaser.Sound.BaseSound;
+
   constructor() {
     super('breakout');
     this.Memory = new Memory();
   }
 
   create() {
-    this.map = this.add.tileSprite(0, 0, 220, 460, 'backgroundTetris').setOrigin(0, 0);
+    this.map = this.add.tileSprite(0, 0, 220, 460, 'breakmap').setOrigin(0, 0);
     this.physics.world.setBoundsCollision(true, true, true, false);
     this.score = 0;
     this.tableScore = this.add.text(22, 0, `Score:${this.score}`, style);
+    this.punchSound = this.sound.add('punch');
     this.bricks = this.physics.add.staticGroup({
-      key: 'figure',
+      key: 'coin',
       frameQuantity: 49,
       gridAlign: {
         width: 7, height: 10, cellWidth: 20, cellHeight: 20, x: 50, y: 90,
@@ -73,6 +76,7 @@ export default class Breakout extends Phaser.Scene {
     if (this.bricks.countActive() === 0) {
       this.resetLevel();
     }
+    this.punchSound.play();
   }
 
   resetBall() {
@@ -100,6 +104,7 @@ export default class Breakout extends Phaser.Scene {
     } else {
       ball.setVelocityX(2 + Math.random() * 8);
     }
+    this.punchSound.play();
   }
 
   gameOver() {

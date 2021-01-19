@@ -29,7 +29,7 @@ export default class Breakout extends Phaser.Scene {
 
   private cursors: Phaser.Types.Input.Keyboard.CursorKeys;
 
-  private lastFired: number;
+  private shotSound: Phaser.Sound.BaseSound;
 
   constructor() {
     super('spaceAttack');
@@ -37,11 +37,11 @@ export default class Breakout extends Phaser.Scene {
   }
 
   create() {
-    this.map = this.add.tileSprite(0, 0, 220, 460, 'backgroundTetris').setOrigin(0, 0);
+    this.map = this.add.tileSprite(0, 0, 220, 460, 'space').setOrigin(0, 0);
     this.border = this.physics.add.sprite(0, 459, 'line').setOrigin(0, 0);
     this.physics.world.setBoundsCollision(true, true, true, false);
     this.ship = this.physics.add.image(110, 440, 'ship').setImmovable();
-    this.lastFired = 0;
+    this.shotSound = this.sound.add('boom');
     this.score = 0;
     this.tableScore = this.add.text(22, 0, `Score:${this.score}`, style);
     this.cursors = this.input.keyboard.createCursorKeys();
@@ -71,7 +71,9 @@ export default class Breakout extends Phaser.Scene {
     this.checkLevel();
 
     if (this.input.activePointer.isDown) {
-      this.bulletGen();
+      if (this.bullets.children.entries.length < 8) {
+        this.bulletGen();
+      }
     }
   }
 
@@ -208,12 +210,13 @@ export default class Breakout extends Phaser.Scene {
     const xCoord = this.ship.x;
     const yCoord = this.ship.y;
     this.bullets.create(xCoord, yCoord - 20, 'ball').setScale(0.5);
+    this.shotSound.play();
   }
 
   bricksGen() {
     const xCoord = Math.random() * 210 + 10;
 
-    this.bricks.create(xCoord, -20, 'figure').setGravityY(200);
+    this.bricks.create(xCoord, -20, 'covid').setGravityY(200).setScale(1.1);
   }
 
   move() {
@@ -228,7 +231,9 @@ export default class Breakout extends Phaser.Scene {
     }
 
     if (this.cursors.space.isDown) {
-      this.bulletGen();
+      if (this.bullets.children.entries.length < 8) {
+        this.bulletGen();
+      }
     }
   }
 }

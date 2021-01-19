@@ -26,7 +26,7 @@ export default class MainMenu extends Phaser.Scene {
       });
     this.text.x = (this.Memory.getConfig().width - this.text.width) / 2;
 
-    const btnRaceGame = new CustomButton(this, 110, 135, 'Race game');
+    const btnRaceGame = new CustomButton(this, 110, 105, 'Race game');
     this.add.existing(btnRaceGame);
 
     btnRaceGame.setInteractive()
@@ -34,25 +34,32 @@ export default class MainMenu extends Phaser.Scene {
         this.scene.start('RaceGame');
       });
 
-    const btnTetrisGame = new CustomButton(this, 110, 185, 'Tetris game');
+    const btnTetrisGame = new CustomButton(this, 110, 145, 'Tetris game');
     this.add.existing(btnTetrisGame);
     btnTetrisGame.setInteractive()
       .on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN, () => {
         this.scene.start('tetris');
       });
 
-    const btnBreakoutGame = new CustomButton(this, 110, 285, 'Breakout game');
+    const btnBreakoutGame = new CustomButton(this, 110, 185, 'Breakout game');
     this.add.existing(btnBreakoutGame);
     btnBreakoutGame.setInteractive()
       .on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN, () => {
         this.scene.start('breakout');
       });
 
-    const btnspaceAttackGame = new CustomButton(this, 110, 335, 'Space attack');
+    const btnspaceAttackGame = new CustomButton(this, 110, 225, 'Space attack');
     this.add.existing(btnspaceAttackGame);
     btnspaceAttackGame.setInteractive()
       .on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN, () => {
         this.scene.start('spaceAttack');
+      });
+
+    const btnFlappyGame = new CustomButton(this, 110, 265, 'Flappy bird');
+    this.add.existing(btnFlappyGame);
+    btnFlappyGame.setInteractive()
+      .on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN, () => {
+        this.scene.start('flappyBird');
       });
   }
 }
