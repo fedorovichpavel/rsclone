@@ -1,4 +1,18 @@
 import * as Phaser from 'phaser';
+// @ts-ignore
+import jump from '../../assets/audio/jump.mp3';
+// @ts-ignore
+import boom from '../../assets/audio/boom.mp3';
+// @ts-ignore
+import punch from '../../assets/audio/punch.mp3';
+// @ts-ignore
+import rotate from '../../assets/audio/rotate.mp3';
+// @ts-ignore
+import join from '../../assets/audio/join.mp3';
+// @ts-ignore
+import broken from '../../assets/audio/broken.mp3';
+// @ts-ignore
+import fall from '../../assets/audio/fall.mp3';
 
 const defaultScreen = require('../../assets/image/screen.png');
 const road = require('../../assets/image/road.png');
@@ -13,6 +27,14 @@ const line2 = require('../../assets/image/Line2.png');
 const ball = require('../../assets/image/ball.png');
 const paddle = require('../../assets/image/paddle.png');
 const ship = require('../../assets/image/ship.png');
+const bird = require('../../assets/image/bird.png');
+const pipe = require('../../assets/image/pipe.png');
+const ground = require('../../assets/image/ground.png');
+const sky = require('../../assets/image/sky.png');
+const covid = require('../../assets/image/covid.png');
+const space = require('../../assets/image/space.png');
+const coin = require('../../assets/image/coin.png');
+const breakmap = require('../../assets/image/breakmap.png');
 
 export default class Preload extends Phaser.Scene {
   constructor() {
@@ -33,8 +55,22 @@ export default class Preload extends Phaser.Scene {
     this.load.image('ball', ball);
     this.load.image('paddle', paddle);
     this.load.image('ship', ship);
+    this.load.image('bird', bird);
+    this.load.image('pipe', pipe);
+    this.load.image('ground', ground);
+    this.load.image('sky', sky);
+    this.load.image('covid', covid);
+    this.load.image('space', space);
+    this.load.image('coin', coin);
+    this.load.image('breakmap', breakmap);
     // Ваши картинки все
-    this.create();
+    this.load.audio('jump', jump);
+    this.load.audio('boom', boom);
+    this.load.audio('punch', punch);
+    this.load.audio('rotate', rotate);
+    this.load.audio('broken', broken);
+    this.load.audio('join', join);
+    this.load.audio('fall', fall);
   }
 
   create() {

@@ -45,6 +45,14 @@ export default class Tetris extends Phaser.Scene {
 
   private swipe: Swipe;
 
+  private color: any;
+
+  private rotateSound: Phaser.Sound.BaseSound;
+
+  private joinSound: Phaser.Sound.BaseSound;
+
+  private brokenSound: Phaser.Sound.BaseSound;
+
   constructor() {
     super('tetris');
     this.speed = 2;
@@ -100,11 +108,12 @@ export default class Tetris extends Phaser.Scene {
       ],
     ];
     const randomNum = Math.floor(Math.random() * (7 - 1) + 1);
+    this.tint();
     this.fig = this.physics.add.group();
-    this.fig.create(arr[randomNum][0][0] + 10, arr[randomNum][0][1] + 10, 'figure');
-    this.fig.create(arr[randomNum][1][0] + 10, arr[randomNum][1][1] + 10, 'figure');
-    this.fig.create(arr[randomNum][2][0] + 10, arr[randomNum][2][1] + 10, 'figure');
-    this.fig.create(arr[randomNum][3][0] + 10, arr[randomNum][3][1] + 10, 'figure');
+    this.fig.create(arr[randomNum][0][0] + 10, arr[randomNum][0][1] + 10, 'figure').setTint(this.color);
+    this.fig.create(arr[randomNum][1][0] + 10, arr[randomNum][1][1] + 10, 'figure').setTint(this.color);
+    this.fig.create(arr[randomNum][2][0] + 10, arr[randomNum][2][1] + 10, 'figure').setTint(this.color);
+    this.fig.create(arr[randomNum][3][0] + 10, arr[randomNum][3][1] + 10, 'figure').setTint(this.color);
     this.numberFigure = randomNum;
   }
 
@@ -113,6 +122,9 @@ export default class Tetris extends Phaser.Scene {
     this.borderBottom = this.physics.add.sprite(0, 459, 'line').setOrigin(0, 0);
     this.borderLeft = this.physics.add.sprite(0, 0, 'line2').setOrigin(0, 0);
     this.borderRight = this.physics.add.sprite(219, 0, 'line2').setOrigin(0, 0);
+    this.rotateSound = this.sound.add('rotate');
+    this.brokenSound = this.sound.add('broken');
+    this.joinSound = this.sound.add('join');
     this.group = this.physics.add.group();
     // eslint-disable-next-line
     this.YGroup = [10, 30, 50, 70, 90, 110, 130, 150, 170, 190, 210, 230, 250, 270, 290, 310, 330, 350, 370, 390, 410, 430, 450];
@@ -124,6 +136,7 @@ export default class Tetris extends Phaser.Scene {
     this.tableScore = this.add.text(22, 0, `Score:${this.score}`, style);
     this.numberFigure = 0;
     this.randomFig();
+    this.color = Math.random() * 0xffffff;
     this.physics.add.existing(this.borderBottom);
     this.physics.add.existing(this.borderLeft);
     this.physics.add.existing(this.borderRight);
@@ -136,6 +149,10 @@ export default class Tetris extends Phaser.Scene {
       repeat: -1,
     });
     this.cursors = this.input.keyboard.createCursorKeys();
+  }
+
+  tint() {
+    this.color = Math.random() * 0xffffff;
   }
 
   update() {
@@ -193,6 +210,7 @@ export default class Tetris extends Phaser.Scene {
       });
       if (checkDel[coorY].length === 11) {
         checkDel[coorY].forEach((e) => e.destroy());
+        this.brokenSound.play();
         this.score += 10;
         this.group.getChildren().forEach((e:Phaser.GameObjects.Sprite) => {
           if (e.y < coorY) {
@@ -204,6 +222,7 @@ export default class Tetris extends Phaser.Scene {
   }
 
   rotation(item) {
+    this.rotateSound.play();
     let pressNum = 1;
     item.getChildren().forEach((e) => {
       const xRound = (Math.round(e.x / 10));
@@ -239,11 +258,12 @@ export default class Tetris extends Phaser.Scene {
       });
     }
     if (!this.checkBottom) {
+      this.joinSound.play();
       this.fig.getChildren().forEach((e:Phaser.GameObjects.Sprite) => {
         e.y -= 1;
         const yRound = Math.round(e.y / 10);
         const yYG = (yRound % 2 !== 0) ? yRound * 10 : (yRound + 1) * 10;
-        this.group.create(e.x, yYG, 'figure');
+        this.group.create(e.x, yYG, 'figure').setTint(this.color);
       });
       this.fig.children.entries.forEach((e) => e.destroy());
       this.fig.children.entries.forEach((e) => e.destroy());
