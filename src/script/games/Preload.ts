@@ -12,6 +12,7 @@ const line = require('../../assets/image/Line.png');
 const line2 = require('../../assets/image/Line2.png');
 const ball = require('../../assets/image/ball.png');
 const paddle = require('../../assets/image/paddle.png');
+const ship = require('../../assets/image/ship.png');
 
 export default class Preload extends Phaser.Scene {
   constructor() {
@@ -31,6 +32,7 @@ export default class Preload extends Phaser.Scene {
     this.load.image('line2', line2);
     this.load.image('ball', ball);
     this.load.image('paddle', paddle);
+    this.load.image('ship', ship);
     // Ваши картинки все
     this.create();
   }
