@@ -26,7 +26,7 @@ export default class MainMenu extends Phaser.Scene {
       });
     this.text.x = (this.Memory.getConfig().width - this.text.width) / 2;
 
-    const btnRaceGame = new CustomButton(this, 110, 135, 'Race game');
+    const btnRaceGame = new CustomButton(this, 110, 105, 'Race game');
     this.add.existing(btnRaceGame);
 
     btnRaceGame.setInteractive()
@@ -41,7 +41,7 @@ export default class MainMenu extends Phaser.Scene {
         this.scene.start('tetris');
       });
 
-    const btnSnakeGame = new CustomButton(this, 110, 235, 'Snake game');
+    const btnSnakeGame = new CustomButton(this, 110, 305, 'Snake game');
     this.add.existing(btnSnakeGame);
 
     btnSnakeGame.setInteractive()

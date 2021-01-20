@@ -91,7 +91,7 @@ export default class Snake extends Phaser.Scene {
       this.gameHeight / 2,
       this.gameWidth,
       this.gameHeight,
-      'ground',
+      'ground1',
     );
 
     this.snake = [

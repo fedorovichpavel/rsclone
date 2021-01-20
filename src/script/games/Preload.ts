@@ -15,7 +15,7 @@ const body = require('../../assets/image/body.png');
 const tail = require('../../assets/image/tail.png');
 const mouse = require('../../assets/image/mouse.png');
 const flower = require('../../assets/image/flower.png');
-const ground = require('../../assets/image/ground.png');
+const ground1 = require('../../assets/image/ground1.png');
 
 export default class Preload extends Phaser.Scene {
   constructor() {
@@ -38,7 +38,7 @@ export default class Preload extends Phaser.Scene {
     this.load.image('tail', tail);
     this.load.image('mouse', mouse);
     this.load.image('flower', flower);
-    this.load.image('ground', ground);
+    this.load.image('ground1', ground1);
     // Ваши картинки все
     this.create();
   }
