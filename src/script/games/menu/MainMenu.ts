@@ -34,14 +34,35 @@ export default class MainMenu extends Phaser.Scene {
         this.scene.start('RaceGame');
       });
 
-    const btnTetrisGame = new CustomButton(this, 110, 185, 'Tetris game');
+    const btnTetrisGame = new CustomButton(this, 110, 145, 'Tetris game');
     this.add.existing(btnTetrisGame);
     btnTetrisGame.setInteractive()
       .on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN, () => {
         this.scene.start('tetris');
       });
 
-    const btnSnakeGame = new CustomButton(this, 110, 305, 'Snake game');
+    const btnBreakoutGame = new CustomButton(this, 110, 185, 'Breakout game');
+    this.add.existing(btnBreakoutGame);
+    btnBreakoutGame.setInteractive()
+      .on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN, () => {
+        this.scene.start('breakout');
+      });
+
+    const btnspaceAttackGame = new CustomButton(this, 110, 225, 'Space attack');
+    this.add.existing(btnspaceAttackGame);
+    btnspaceAttackGame.setInteractive()
+      .on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN, () => {
+        this.scene.start('spaceAttack');
+      });
+
+    const btnFlappyGame = new CustomButton(this, 110, 265, 'Flappy bird');
+    this.add.existing(btnFlappyGame);
+    btnFlappyGame.setInteractive()
+      .on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN, () => {
+        this.scene.start('flappyBird');
+      });
+    
+        const btnSnakeGame = new CustomButton(this, 110, 305, 'Snake game');
     this.add.existing(btnSnakeGame);
 
     btnSnakeGame.setInteractive()
