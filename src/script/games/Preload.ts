@@ -24,6 +24,12 @@ const map = require('../../assets/image/map.png');
 const figure = require('../../assets/image/figure.png');
 const line = require('../../assets/image/Line.png');
 const line2 = require('../../assets/image/Line2.png');
+const head = require('../../assets/image/head.png');
+const body = require('../../assets/image/body.png');
+const tail = require('../../assets/image/tail.png');
+const mouse = require('../../assets/image/mouse.png');
+const flower = require('../../assets/image/flower.png');
+const ground1 = require('../../assets/image/ground1.png');
 const ball = require('../../assets/image/ball.png');
 const paddle = require('../../assets/image/paddle.png');
 const ship = require('../../assets/image/ship.png');
@@ -35,6 +41,7 @@ const covid = require('../../assets/image/covid.png');
 const space = require('../../assets/image/space.png');
 const coin = require('../../assets/image/coin.png');
 const breakmap = require('../../assets/image/breakmap.png');
+
 
 export default class Preload extends Phaser.Scene {
   constructor() {
@@ -52,6 +59,12 @@ export default class Preload extends Phaser.Scene {
     this.load.image('figure', figure);
     this.load.image('line', line);
     this.load.image('line2', line2);
+    this.load.image('head', head);
+    this.load.image('body', body);
+    this.load.image('tail', tail);
+    this.load.image('mouse', mouse);
+    this.load.image('flower', flower);
+    this.load.image('ground1', ground1);
     this.load.image('ball', ball);
     this.load.image('paddle', paddle);
     this.load.image('ship', ship);
@@ -63,7 +76,7 @@ export default class Preload extends Phaser.Scene {
     this.load.image('space', space);
     this.load.image('coin', coin);
     this.load.image('breakmap', breakmap);
-    // Ваши картинки все
+ 
     this.load.audio('jump', jump);
     this.load.audio('boom', boom);
     this.load.audio('punch', punch);
