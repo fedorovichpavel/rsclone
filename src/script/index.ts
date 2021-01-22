@@ -3,6 +3,7 @@ import * as Phaser from 'phaser';
 // @ts-ignore
 // eslint-disable-next-line import/extensions
 import GesturesPlugin from 'phaser3-rex-plugins/plugins/gestures-plugin.js';
+import './script';
 // @ts-ignore
 import Race from './games/race/Race.ts';
 // @ts-ignore

@@ -1,14 +1,72 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+    <link rel="shortcut icon" type="image/png" href="favicon.png" />
 </head>
+
 <body>
-<div id="game"></div>
+    <div class="spinner">
+        <div class="blob blob-0"></div>
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+        <div class="blob blob-4"></div>
+        <div class="blob blob-5"></div>
+    </div>
+    <div class="wrapper">
+        <header class="header">
+            <div class="header__logo blocks">
+                <img src="../src/assets/image/logo.png" alt="logo"> GAME NAME
+            </div>
+            <div class="header__login blocks">LOGIN</div>
+        </header>
+
+        <div class="content">
+            <div class="content__stat  blocks">
+                <h2>Statistic</h2>
+                <span>User: Name</span> <span>Game: NameGame</span> <span>Score: 0000</span>
+            </div>
+            <div class="content__game">
+                <!--GAME CANVAS CONTEINER-->
+                <div id="game"></div>
+            </div>
+            <div class="content__gameProp blocks">
+                Current game name
+            </div>
+        </div>
+        <div class="downpage">
+
+            <div class="slide blocks" id="slide">
+                <div class="scroll" id="slide"></div>
+                <p id="slide">Article</p>
+                <div class="scroll" id="slide"></div>
+            </div>
+
+            <div class="article blocks">
+                <h2>Article</h2>
+                <p>An article is any member of a class of dedicated words that are used with noun phrases to mark the identifiability of the referents of the noun phrases. The category of articles constitutes a part of speech.</p>
+                <p>In English, both "the" and "a" are articles, which combine with a noun to form a noun phrase. Articles typically specify grammatical definiteness of the noun phrase, but in many languages they carry additional grammatical information such
+                    as gender, number, and case. Articles are part of a broader category called determiners, which also include demonstratives, possessive determiners, and quantifiers. In linguistic interlinear glossing, articles are abbreviated as art.</p>
+            </div>
+
+            <footer class="footer blocks">
+                <div class="authors">
+                    <p>Marina M.</p>
+                    <p>Mikhail H.</p>
+                    <p>Pavel F.</p>
+                </div>
+            </footer>
+        </div>
+
+    </div>
+
+
+
 </body>
+
 </html>
