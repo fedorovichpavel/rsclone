@@ -20,7 +20,7 @@ let articleClick = false;
                   //@ts-ignore
                 content.style.top = '0';
                 //@ts-ignore
-                article.style.display = 'none';
+                article.style.position = 'absolute'; article.style.top = '30rem';
                 //@ts-ignore
                 page.style.top = '0';
                 articleClick = false;
@@ -31,9 +31,9 @@ let articleClick = false;
                     //@ts-ignore
                     content.style.top = '-30rem';
                       //@ts-ignore
-                      article.style.display = 'flex';
+                      article.style.position = 'relative'; article.style.top = '0';
                       //@ts-ignore
-                page.style.top = '-16rem';
+                     page.style.top = '-16rem';
                       articleClick = true;
                 }
 

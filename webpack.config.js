@@ -19,12 +19,13 @@ module.exports = {
         new CleanWebpackPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new CopyWebpackPlugin({
-            patterns: [
-                {
-                    from: path.resolve(__dirname, 'src/assets/icon/favicon.png'),
-                    to: path.resolve(__dirname, 'dist'),
-                },
-            ],
+            patterns: [{
+                from: path.resolve(__dirname, 'src/assets/icon/favicon.png'),
+                to: path.resolve(__dirname, 'dist'),
+            }, {
+                from: path.resolve(__dirname, 'src/assets/image'),
+                to: path.resolve(__dirname, 'dist'),
+            }],
         }),
     ],
     output: {
@@ -40,8 +41,7 @@ module.exports = {
         port: 8080,
     },
     module: {
-        rules: [
-            {
+        rules: [{
                 test: /\.tsx?$/,
                 use: ['babel-loader', 'ts-loader'],
                 exclude: /node_modules/,
@@ -53,11 +53,9 @@ module.exports = {
             },
             {
                 test: /\.svg$/,
-                use: [
-                    {
-                        loader: 'svg-url-loader',
-                    },
-                ],
+                use: [{
+                    loader: 'svg-url-loader',
+                }, ],
             },
             {
                 test: /\.(?:ico|gif|png|svg|jpg|jpeg)$/i,
@@ -76,6 +74,6 @@ module.exports = {
 
     },
     resolve: {
-        extensions: [ '.tsx', '.ts', '.js' ],
+        extensions: ['.tsx', '.ts', '.js'],
     }
 };

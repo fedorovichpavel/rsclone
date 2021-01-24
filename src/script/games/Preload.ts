@@ -41,6 +41,7 @@ const covid = require('../../assets/image/covid.png');
 const space = require('../../assets/image/space.png');
 const coin = require('../../assets/image/coin.png');
 const breakmap = require('../../assets/image/breakmap.png');
+const fullscr = require('../../assets/image/fullscreen.jpg');
 
 
 export default class Preload extends Phaser.Scene {
@@ -76,7 +77,8 @@ export default class Preload extends Phaser.Scene {
     this.load.image('space', space);
     this.load.image('coin', coin);
     this.load.image('breakmap', breakmap);
- 
+    this.load.image('fullscreen', fullscr);
+
     this.load.audio('jump', jump);
     this.load.audio('boom', boom);
     this.load.audio('punch', punch);

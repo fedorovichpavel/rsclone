@@ -95,15 +95,13 @@
 
 body {
     margin: 0 auto;
-    background: url(../assets/image/bg.png);
+    background: url(../assets/image/bg.png) top;
+    background-size: cover;
     max-width: 1920px;
     max-height: 1080px;
     width: 100%;
     height: 100%;
-}
-
-div {
-    margin: 8px;
+    overflow: hidden;
 }
 
 .wrapper {
@@ -120,30 +118,40 @@ div {
 }
 
 .header {
-    width: 100%;
     display: flex;
     justify-content: space-between;
 }
 
 .header__logo {
-    padding: 10px;
+    margin: 8px;
+    display: flex;
     background-color: rgba(255, 255, 255, 0.5);
     width: 50%;
     height: 100%;
-    font-family: 'Pixel';
-    color: #000000;
-    font-size: 30px;
+    border: #0081fa 5px solid;
+    h1 {
+        padding: 10px 30px;
+        font-family: 'Pixel';
+        color: #000000;
+        font-size: 37px;
+        font-weight: 400;
+    }
+    img {
+        padding-left: 20px;
+    }
 }
 
 .header__login {
+    margin: 8px;
     padding: 10px;
     background-color: rgba(255, 255, 255, 0.5);
     width: 50%;
     height: 100%;
+    border: #fa004b 5px solid;
 }
 
 .content {
-    width: 99%;
+    margin: 0;
     display: flex;
     position: relative;
     top: 0;
@@ -152,8 +160,10 @@ div {
 }
 
 .content__stat {
+    margin: 8px;
     background-color: rgba(255, 255, 255, 0.5);
     width: 100%;
+    border: #d9ff00 5px solid;
     h2 {
         text-align: center;
     }
@@ -163,24 +173,33 @@ div {
 }
 
 .content__game {
-    border: #fa8500 3px solid;
+    margin: 8px;
+    border: #fa8500 5px solid;
+    border-radius: 3%;
     #game {
-        margin: 0;
         height: 460px;
+        canvas {
+            width: 220px;
+            margin: 0 auto;
+        }
     }
 }
 
 .content__gameProp {
+    margin: 8px;
     background-color: rgba(255, 255, 255, 0.5);
     width: 100%;
+    border: #33ff00 5px solid;
 }
 
 .blocks {
-    border: #fa8500 3px solid;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    border-bottom: thin;
+    border-radius: 5%;
 }
 
 .downpage {
+    margin: 8px;
     position: relative;
     top: 0;
     transition: 0.7s ease-in-out;
@@ -190,8 +209,9 @@ div {
     margin: 0 0 16px;
     display: flex;
     justify-content: space-evenly;
-    width: 100%;
     background-color: rgba(255, 255, 255, 0.5);
+    border: #b302b9 5px solid;
+    border-bottom: thin;
     p {
         align-self: center;
     }
@@ -203,7 +223,7 @@ div {
 .scroll {
     width: 30px;
     height: 30px;
-    border: 3px solid #337AB7;
+    border: 3px solid #6c0070;
     border-radius: 50%;
     position: relative;
     animation: down 1.5s infinite;
@@ -218,8 +238,8 @@ div {
     left: 6px;
     width: 9px;
     height: 9px;
-    border-left: 3px solid #337AB7;
-    border-bottom: 3px solid #337AB7;
+    border-left: 3px solid #6c0070;
+    border-bottom: 3px solid #6c0070;
     transform: rotate(-45deg);
 }
 
@@ -238,10 +258,12 @@ div {
 .article {
     background-color: rgba(255, 255, 255, 0.5);
     margin: 0 0 16px;
-    display: none;
+    position: absolute;
+    top: 30rem;
     flex-direction: column;
-    width: 100%;
-    transition: 0.3s opacity;
+    transition: 0.9s ease-in-out;
+    border: #00fa3e 5px solid;
+    border-bottom: thin;
     h2 {
         align-self: center;
         padding-bottom: 10px;
@@ -252,10 +274,10 @@ div {
 }
 
 .footer {
-    width: 100%;
     display: flex;
     justify-content: space-between;
     background-color: rgba(255, 255, 255, 0.5);
+    border: #017474 5px solid;
     .authors {
         width: 100%;
         display: flex;
