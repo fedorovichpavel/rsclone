@@ -61,8 +61,8 @@ export default class MainMenu extends Phaser.Scene {
       .on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN, () => {
         this.scene.start('flappyBird');
       });
-    
-        const btnSnakeGame = new CustomButton(this, 110, 305, 'Snake game');
+
+    const btnSnakeGame = new CustomButton(this, 110, 305, 'Snake game');
     this.add.existing(btnSnakeGame);
 
     btnSnakeGame.setInteractive()

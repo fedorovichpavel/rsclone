@@ -42,7 +42,6 @@ const space = require('../../assets/image/space.png');
 const coin = require('../../assets/image/coin.png');
 const breakmap = require('../../assets/image/breakmap.png');
 
-
 export default class Preload extends Phaser.Scene {
   constructor() {
     super('Preload');
@@ -76,7 +75,7 @@ export default class Preload extends Phaser.Scene {
     this.load.image('space', space);
     this.load.image('coin', coin);
     this.load.image('breakmap', breakmap);
- 
+
     this.load.audio('jump', jump);
     this.load.audio('boom', boom);
     this.load.audio('punch', punch);
