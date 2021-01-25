@@ -73,6 +73,9 @@ async function getUrlVars() {
     if (!res.status) {
       // eslint-disable-next-line no-new
       new Phaser.Game(config);
+      const popup:HTMLInputElement = document.querySelector('.popup');
+      popup.style.opacity = '0';
+       setTimeout(()=>popup.style.display = 'none', 1000);
     }
   }
 }
