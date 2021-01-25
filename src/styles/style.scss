@@ -109,7 +109,7 @@ $second_color: rgba(255, 0, 0, 0.5);
     }
 }
 
-#url {
+.animation {
     font-family: $primary_font;
     font-size: 1em;
     line-height: 1em;
@@ -284,12 +284,18 @@ body {
     height: 100%;
     border: #0081fa 5px solid;
     h1 {
-        padding: 10px 30px;
-        font-family: 'Pixel';
-        color: #000000;
-        font-size: 37px;
-        font-weight: 400;
-        margin: 0;
+        display: flex;
+        margin: 12px;
+        padding-left: 1.5rem;
+        span {
+            margin: 0;
+            padding: 2px;
+            font-family: 'Pixel';
+            font-size: 39px;
+            font-weight: 200;
+            margin: 0;
+            -webkit-text-stroke: .03em #161616;
+        }
     }
     img {
         padding-left: 20px;
@@ -300,11 +306,19 @@ body {
 
 .header__login {
     margin: 8px;
-    padding: 17px 0 17.5px 20px;
+    padding: 23px 0 22.5px 20px;
     background-color: rgba(255, 255, 255, 0.5);
     width: 50%;
     height: 100%;
     border: #fa004b 5px solid;
+    a {
+        color: #ff4a95;
+        text-decoration: none;
+        -webkit-text-stroke: .02em #161616;
+        &:hover {
+            color: rgb(241, 99, 33);
+        }
+    }
 }
 
 .content {
