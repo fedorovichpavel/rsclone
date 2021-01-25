@@ -43,4 +43,9 @@ export default class UserApi {
       response.data.scorePointTanks,
       response.data.scorePointSpaceBreak);
   }
+
+  public auth = async (clientId1, clientSecret1, code1) => {
+    const response = await axios.get(`https://score-api2020q3.herokuapp.com/login/github/${code1}`);
+    return response.data;
+  }
 }

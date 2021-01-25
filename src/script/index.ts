@@ -23,6 +23,8 @@ import GameOver from './games/GameOver.ts';
 import Memory from './games/Memory.ts';
 // @ts-ignore
 import MainMenu from './games/menu/MainMenu.ts';
+// @ts-ignore
+import UserApi from './games/Api/UserApi.ts';
 // eslint-disable-next-line import/extensions
 
 const config = {
@@ -51,4 +53,25 @@ const config = {
 
 const memory = new Memory();
 memory.setConfig(config);
-export default new Phaser.Game(config);
+
+async function getUrlVars() {
+  const vars = {
+    code: undefined,
+  };
+  // @ts-ignore
+  window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, (m, key, value) => {
+    vars[key] = value;
+  });
+  if (vars.code) {
+    const oauth = new UserApi();
+    const clientSecret = '141ab6f4890e2cad7e08a62694ef96f9f51a9317';
+    const clientId = 'b04b335d696a08b29eb3';
+    const res = await oauth.auth(clientId, clientSecret, vars.code);
+    // eslint-disable-next-line no-empty
+    if (!res.status) {
+      // eslint-disable-next-line no-new
+      new Phaser.Game(config);
+    }
+  }
+}
+getUrlVars();
