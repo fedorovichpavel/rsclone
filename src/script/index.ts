@@ -48,7 +48,7 @@ const config = {
     }],
   },
   width: 220,
- height: 460,
+  height: 460,
   parent: 'game',
   scene: [Preload, MainMenu, Race, Tetris, Breakout, SpaceAttack, FlappyBird, Snake, GameOver],
 };

@@ -43,7 +43,6 @@ const coin = require('../../assets/image/coin.png');
 const breakmap = require('../../assets/image/breakmap.png');
 const fullscr = require('../../assets/image/fullscreen.jpg');
 
-
 export default class Preload extends Phaser.Scene {
   constructor() {
     super('Preload');

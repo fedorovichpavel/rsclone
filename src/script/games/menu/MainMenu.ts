@@ -62,7 +62,7 @@ export default class MainMenu extends Phaser.Scene {
         this.scene.start('flappyBird');
       });
 
-        const btnSnakeGame = new CustomButton(this, 110, 305, 'Snake game');
+    const btnSnakeGame = new CustomButton(this, 110, 305, 'Snake game');
     this.add.existing(btnSnakeGame);
 
     btnSnakeGame.setInteractive()
@@ -70,27 +70,21 @@ export default class MainMenu extends Phaser.Scene {
         this.scene.start('SnakeGame');
       });
 
+    const btnFullScreen = this.add.image(200, 20, 'fullscreen', 0).setInteractive().setScale(0.3);
+    btnFullScreen.on('pointerup', function () {
+      if (this.scale.isFullscreen) {
+        btnFullScreen.setFrame(0);
 
-      const btnFullScreen = this.add.image(200, 20, 'fullscreen', 0).setInteractive().setScale(0.3);
-      btnFullScreen.on('pointerup', function () {
+        this.scale.stopFullscreen();
+      } else {
+        btnFullScreen.setFrame(1);
 
-        if (this.scale.isFullscreen)
-        {
-            btnFullScreen.setFrame(0);
-
-            this.scale.stopFullscreen();
-        }
-        else
-        {
-            btnFullScreen.setFrame(1);
-
-            this.scale.startFullscreen();
-              //@ts-ignore
-           document.querySelector("canvas").style.height = 'inherit'; document.querySelector("canvas").style.width = 'auto';
-         //@ts-ignore
-           document.querySelector("#game div").style.textAlign = 'center';
-        }
-
+        this.scale.startFullscreen();
+        // @ts-ignore
+        document.querySelector('canvas').style.height = 'inherit'; document.querySelector('canvas').style.width = 'auto';
+        // @ts-ignore
+        document.querySelector('#game div').style.textAlign = 'center';
+      }
     }, this);
   }
 }
