@@ -76,3 +76,5 @@ LogoSpan[2].style.color = 'rgb(0, 255, 21)';
 LogoSpan[3].style.color = 'rgb(0, 60, 255)';
 LogoSpan[4].style.color = 'rgb(255, 0, 0)';
 LogoSpan[5].style.color = 'rgb(199, 33, 241)';
+
+document.querySelector('.header__logo h1').style.alignItems = 'center';

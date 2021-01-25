@@ -272,7 +272,7 @@ body {
 .header {
     display: flex;
     justify-content: space-between;
-    margin: 20px 0 0;
+    margin: 5px 0 0;
 }
 
 .header__logo {
@@ -281,7 +281,7 @@ body {
     display: flex;
     background-color: rgba(255, 255, 255, 0.5);
     width: 50%;
-    height: 100%;
+    height: 8vh;
     border: #0081fa 5px solid;
     h1 {
         display: flex;
@@ -306,11 +306,14 @@ body {
 
 .header__login {
     margin: 8px;
-    padding: 23px 0 22.5px 20px;
+    padding: 4px 20px;
     background-color: rgba(255, 255, 255, 0.5);
     width: 50%;
-    height: 100%;
+    height: 8vh;
     border: #fa004b 5px solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     a {
         color: #ff4a95;
         text-decoration: none;
@@ -322,12 +325,33 @@ body {
 }
 
 .content {
+    height: 65vh;
     margin: 0;
     display: flex;
     position: relative;
     top: 0;
     justify-content: space-between;
     transition: 0.9s ease-in-out;
+}
+
+.popup {
+    position: absolute;
+    background: #323232;
+    opacity: 0.97;
+    width: 100%;
+    height: 100%;
+    border-radius: 6%;
+    border: 2px #04fb2e solid;
+    display: flex;
+    transition: 1s opacity;
+    h2 {
+        align-self: center;
+        margin: 0 auto;
+        font-size: 2rem;
+        color: #fff;
+        letter-spacing: 5px;
+        -webkit-text-stroke: #000 1px;
+    }
 }
 
 .content__stat {
@@ -348,10 +372,12 @@ body {
     border: #fa8500 5px solid;
     border-radius: 3%;
     #game {
-        height: 460px;
+        height: 61vh;
         canvas {
-            width: 220px;
+            height: 102%;
+            width: auto;
             margin: 0 auto;
+            border-radius: 2%;
         }
     }
 }
@@ -377,8 +403,9 @@ body {
 }
 
 .slide {
-    margin: 0 0 16px;
+    margin: 0 0 12px;
     display: flex;
+    height: 7.5vh;
     justify-content: space-evenly;
     background-color: rgba(255, 255, 255, 0.5);
     border: #b302b9 5px solid;
@@ -429,6 +456,7 @@ body {
 .article {
     background-color: rgba(255, 255, 255, 0.5);
     margin: 0 0 16px;
+    height: 64vh;
     position: absolute;
     top: 30rem;
     flex-direction: column;
@@ -456,13 +484,19 @@ body {
         align-items: center;
         padding: 10px 0;
         h3 {
-            font-size: 20px;
+            font-size: 30px;
+            color: #fff;
+            -webkit-text-stroke: #000 1px;
         }
         a {
             font-size: 24px;
         }
         img {
             width: 80px;
+        }
+        p {
+            color: #fff;
+            -webkit-text-stroke: #000 1px;
         }
     }
 }
