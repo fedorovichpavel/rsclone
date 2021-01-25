@@ -4,6 +4,7 @@ import * as Phaser from 'phaser';
 // eslint-disable-next-line import/extensions
 import GesturesPlugin from 'phaser3-rex-plugins/plugins/gestures-plugin.js';
 import './script';
+import './hovers.js';
 // @ts-ignore
 import Race from './games/race/Race.ts';
 // @ts-ignore
