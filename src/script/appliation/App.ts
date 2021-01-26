@@ -1,4 +1,5 @@
-import Header from "./landings/header/Header";
+// @ts-ignore
+import Header from './landings/header/Header.ts';
 
 export default class App {
   private static instance: App;

@@ -27,6 +27,7 @@ import Memory from './appliation/games/Memory.ts';
 import MainMenu from './appliation/games/menu/MainMenu.ts';
 // @ts-ignore
 import UserApi from './appliation/games/Api/UserApi.ts';
+import App from "./appliation/App";
 // eslint-disable-next-line import/extensions
 
 const config = {
@@ -75,8 +76,10 @@ async function getUrlVars() {
       new Phaser.Game(config);
       const popup:HTMLInputElement = document.querySelector('.popup');
       popup.style.opacity = '0';
+      // eslint-disable-next-line no-return-assign
       setTimeout(() => popup.style.display = 'none', 1000);
     }
   }
 }
 getUrlVars();
+export default new App();

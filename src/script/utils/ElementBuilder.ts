@@ -24,6 +24,7 @@ export default class ElementBuilder {
   }
 
   appendToBody() {
+    console.log(this.element);
     document.body.append(this.element);
   }
 
