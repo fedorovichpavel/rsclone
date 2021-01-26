@@ -23,7 +23,7 @@ export default class Tetris extends Phaser.Scene {
 
   private borderLeft: Phaser.GameObjects.Sprite;
 
-  private borderRight: Phaser.GameObjects.Sprite;
+  private borderRight: Phaser.GameObjects.Sprite;;
 
   private group: Phaser.GameObjects.Group;
 
@@ -49,13 +49,15 @@ export default class Tetris extends Phaser.Scene {
 
   private rotateSound: Phaser.Sound.BaseSound;
 
+  private swipeSound: Phaser.Sound.BaseSound;
+
   private joinSound: Phaser.Sound.BaseSound;
 
   private brokenSound: Phaser.Sound.BaseSound;
 
   constructor() {
     super('tetris');
-    this.speed = 2;
+    this.speed = 1;
     this.Memory = new Memory();
   }
 
@@ -123,6 +125,7 @@ export default class Tetris extends Phaser.Scene {
     this.borderLeft = this.physics.add.sprite(0, 0, 'line2').setOrigin(0, 0);
     this.borderRight = this.physics.add.sprite(219, 0, 'line2').setOrigin(0, 0);
     this.rotateSound = this.sound.add('rotate');
+    this.swipeSound = this.sound.add('swipe');
     this.brokenSound = this.sound.add('broken');
     this.joinSound = this.sound.add('join');
     this.group = this.physics.add.group();
@@ -277,20 +280,20 @@ export default class Tetris extends Phaser.Scene {
       this.randomFig();
       this.checkNeedDelet();
       this.score += 1;
-      if (this.score > 300) {
-        this.speed = 8;
-      } else if (this.score > 250) {
+      if (this.score > 800) {
         this.speed = 7;
-      } else if (this.score > 200) {
+      } else if (this.score > 700) {
         this.speed = 6;
-      } else if (this.score > 150) {
+      } else if (this.score > 600) {
         this.speed = 5;
-      } else if (this.score > 100) {
+      } else if (this.score > 450) {
         this.speed = 4;
-      } else if (this.score > 50) {
+      } else if (this.score > 300) {
         this.speed = 3;
-      } else {
+      } else if (this.score > 100) {
         this.speed = 2;
+      } else {
+        this.speed = 1;
       }
     }
   }
@@ -300,6 +303,7 @@ export default class Tetris extends Phaser.Scene {
       this.checkLeft = true;
       this.cursors.right.isDown = false;
       if (this.checkRight) {
+        this.swipeSound.play();
         let checkR = false;
         this.fig.getChildren().forEach((e:Phaser.GameObjects.Sprite) => {
           const yRound = Math.round(e.y / 10);
@@ -328,6 +332,7 @@ export default class Tetris extends Phaser.Scene {
       this.checkRight = true;
       this.cursors.left.isDown = false;
       if (this.checkLeft) {
+        this.swipeSound.play();
         let checkL = false;
         this.fig.getChildren().forEach((e:Phaser.GameObjects.Sprite) => {
           const yRound = Math.round(e.y / 10);

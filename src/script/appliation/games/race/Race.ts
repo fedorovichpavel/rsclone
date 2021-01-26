@@ -33,6 +33,12 @@ export default class Race extends Phaser.Scene {
 
   private swipe: Swipe;
 
+  private carDriveSound: Phaser.Sound.BaseSound;
+
+  private drivingSound: Phaser.Sound.BaseSound;
+
+  private dtpSound : Phaser.Sound.BaseSound;
+
   constructor() {
     super('RaceGame');
     this.Memory = new Memory();
@@ -43,9 +49,12 @@ export default class Race extends Phaser.Scene {
     this.arrEnemyCar = [];
     this.score = 0;
     this.speed = 5;
+    this.carDriveSound = this.sound.add('carDrive');
+    this.dtpSound = this.sound.add('dtp');
+    this.drivingSound = this.sound.add('driving');
     this.swipe = new Swipe(this);
     this.road = this.add.tileSprite(0, 0, 220, 460, 'background').setOrigin(0, 0);
-    this.car = this.physics.add.sprite(21, 370, 'carPlayer').setOrigin(0, 0);
+    this.car = this.physics.add.sprite(21, 370, 'carPlayer').setOrigin(0, 0).setScale(0.9);
     this.cursors = this.input.keyboard.createCursorKeys();
     this.spawnEnemyCar();
     this.physics.add.collider(this.car, this.arrEnemyCar, () => this.gameOver());
@@ -53,6 +62,9 @@ export default class Race extends Phaser.Scene {
   }
 
   update() {
+    if (!this.drivingSound.isPlaying && !this.drivingSound.isPaused) {
+      this.drivingSound.play();
+    }
     this.road.tilePositionY -= this.speed;
     this.moveCarLeftAndRight();
     this.moveEnemyCar();
@@ -65,6 +77,7 @@ export default class Race extends Phaser.Scene {
       this.cursors.right.isDown = false;
 
       if (this.car.x !== 141) {
+        this.carDriveSound.play();
         this.car.x += this.movementPX;
       }
     }
@@ -73,6 +86,7 @@ export default class Race extends Phaser.Scene {
       this.cursors.left.isDown = false;
 
       if (this.car.x !== 21) {
+        this.carDriveSound.play();
         this.car.x -= this.movementPX;
       }
     }
@@ -89,7 +103,7 @@ export default class Race extends Phaser.Scene {
     for (let i = 0; i < 5; i += 1) {
       y = -200 * (i + 1);
       x = this.px();
-      this.arrEnemyCar.push(this.physics.add.sprite(x, y, 'car').setOrigin(0, 0));
+      this.arrEnemyCar.push(this.physics.add.sprite(x, y, 'car').setOrigin(0, 0).setScale(0.9));
     }
   }
 
@@ -126,6 +140,8 @@ export default class Race extends Phaser.Scene {
   }
 
   gameOver() {
+    this.dtpSound.play();
+    this.drivingSound.pause();
     this.scene.pause();
     this.Memory.setScorePoint(this.score);
     this.Memory.setPrevGame('RaceGame');

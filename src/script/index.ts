@@ -4,7 +4,7 @@ import * as Phaser from 'phaser';
 // eslint-disable-next-line import/extensions
 import GesturesPlugin from 'phaser3-rex-plugins/plugins/gestures-plugin.js';
 import './script.ts';
-import './hovers.js';
+import './hovers.ts';
 // @ts-ignore
 import Race from './appliation/games/race/Race.ts';
 // @ts-ignore
@@ -27,7 +27,8 @@ import Memory from './appliation/games/Memory.ts';
 import MainMenu from './appliation/games/menu/MainMenu.ts';
 // @ts-ignore
 import UserApi from './appliation/games/Api/UserApi.ts';
-import App from "./appliation/App";
+// @ts-ignore
+import App from './appliation/App.ts';
 // eslint-disable-next-line import/extensions
 
 const config = {

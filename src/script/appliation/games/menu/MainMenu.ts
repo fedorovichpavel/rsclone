@@ -11,6 +11,8 @@ export default class MainMenu extends Phaser.Scene {
 
   private Memory: Memory;
 
+  private btnMute: Phaser.GameObjects.Image;
+
   constructor() {
     super('MainMenu');
     this.Memory = new Memory();
@@ -21,12 +23,13 @@ export default class MainMenu extends Phaser.Scene {
     this.text = this.add.text(0, 45, 'TETRIS',
       {
         fontFamily: 'Pixel',
-        color: '#000000',
+        color: '#fff',
         fontSize: '39px',
       });
+    this.text.setStroke('#000', 0.7);
     this.text.x = (this.Memory.getConfig().width - this.text.width) / 2;
 
-    const btnRaceGame = new CustomButton(this, 110, 105, 'Race game');
+    const btnRaceGame = new CustomButton(this, 110, 125, 'Race game');
     this.add.existing(btnRaceGame);
 
     btnRaceGame.setInteractive()
@@ -34,35 +37,35 @@ export default class MainMenu extends Phaser.Scene {
         this.scene.start('RaceGame');
       });
 
-    const btnTetrisGame = new CustomButton(this, 110, 145, 'Tetris game');
+    const btnTetrisGame = new CustomButton(this, 110, 165, 'Tetris game');
     this.add.existing(btnTetrisGame);
     btnTetrisGame.setInteractive()
       .on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN, () => {
         this.scene.start('tetris');
       });
 
-    const btnBreakoutGame = new CustomButton(this, 110, 185, 'Breakout game');
+    const btnBreakoutGame = new CustomButton(this, 110, 205, 'Breakout game');
     this.add.existing(btnBreakoutGame);
     btnBreakoutGame.setInteractive()
       .on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN, () => {
         this.scene.start('breakout');
       });
 
-    const btnspaceAttackGame = new CustomButton(this, 110, 225, 'Space attack');
+    const btnspaceAttackGame = new CustomButton(this, 110, 245, 'Space attack');
     this.add.existing(btnspaceAttackGame);
     btnspaceAttackGame.setInteractive()
       .on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN, () => {
         this.scene.start('spaceAttack');
       });
 
-    const btnFlappyGame = new CustomButton(this, 110, 265, 'Flappy bird');
+    const btnFlappyGame = new CustomButton(this, 110, 285, 'Flappy bird');
     this.add.existing(btnFlappyGame);
     btnFlappyGame.setInteractive()
       .on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN, () => {
         this.scene.start('flappyBird');
       });
 
-    const btnSnakeGame = new CustomButton(this, 110, 305, 'Snake game');
+    const btnSnakeGame = new CustomButton(this, 110, 325, 'Snake game');
     this.add.existing(btnSnakeGame);
 
     btnSnakeGame.setInteractive()
@@ -70,8 +73,8 @@ export default class MainMenu extends Phaser.Scene {
         this.scene.start('SnakeGame');
       });
 
-    const btnFullScreen = this.add.image(200, 20, 'fullscreen', 0).setInteractive().setScale(0.3);
-    btnFullScreen.on('pointerup', function () {
+    const btnFullScreen = this.add.image(200, 20, 'fullscreen', 0).setInteractive().setScale(0.2);
+    btnFullScreen.on('pointerup', function clicks() {
       if (this.scale.isFullscreen) {
         btnFullScreen.setFrame(0);
 
@@ -80,11 +83,27 @@ export default class MainMenu extends Phaser.Scene {
         btnFullScreen.setFrame(1);
 
         this.scale.startFullscreen();
-        // @ts-ignore
         document.querySelector('canvas').style.height = 'inherit'; document.querySelector('canvas').style.width = 'auto';
-        // @ts-ignore
-        document.querySelector('#game div').style.textAlign = 'center';
+        const gameDiv:HTMLInputElement = document.querySelector('#game div');
+        gameDiv.style.textAlign = 'center';
       }
     }, this);
+
+    if (this.game.sound.mute) {
+      this.btnMute = this.add.image(50, 400, 'muteon', 0).setInteractive().setScale(0.35);
+    } else if (!this.game.sound.mute) {
+      this.btnMute = this.add.image(50, 400, 'muteoff', 0).setInteractive().setScale(0.35);
+    }
+  }
+
+  update() {
+    this.btnMute.on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN, () => {
+      this.game.sound.mute = !this.game.sound.mute;
+    }, this);
+    if (this.game.sound.mute) {
+      this.btnMute = this.add.image(50, 400, 'muteoff', 0).setInteractive().setScale(0.35);
+    } else if (!this.game.sound.mute) {
+      this.btnMute = this.add.image(50, 400, 'muteon', 0).setInteractive().setScale(0.35);
+    }
   }
 }
