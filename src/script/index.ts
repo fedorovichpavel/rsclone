@@ -3,30 +3,30 @@ import * as Phaser from 'phaser';
 // @ts-ignore
 // eslint-disable-next-line import/extensions
 import GesturesPlugin from 'phaser3-rex-plugins/plugins/gestures-plugin.js';
-import './script';
+import './script.ts';
 import './hovers.js';
 // @ts-ignore
-import Race from './games/race/Race.ts';
+import Race from './appliation/games/race/Race.ts';
 // @ts-ignore
-import Tetris from './games/tetris/tetris.ts';
+import Tetris from './appliation/games/tetris/tetris.ts';
 // @ts-ignore
-import Snake from './games/snake/snake.ts';
+import Snake from './appliation/games/snake/snake.ts';
 // @ts-ignore
-import Breakout from './games/breakout/breakout.ts';
+import Breakout from './appliation/games/breakout/breakout.ts';
 // @ts-ignore
-import SpaceAttack from './games/space-attack/space-attack.ts';
+import SpaceAttack from './appliation/games/space-attack/space-attack.ts';
 // @ts-ignore
-import FlappyBird from './games/flappy-bird/flappy-bird.ts';
+import FlappyBird from './appliation/games/flappy-bird/flappy-bird.ts';
 // @ts-ignore
-import Preload from './games/Preload.ts';
+import Preload from './appliation/games/Preload.ts';
 // @ts-ignore
-import GameOver from './games/GameOver.ts';
+import GameOver from './appliation/games/GameOver.ts';
 // @ts-ignore
-import Memory from './games/Memory.ts';
+import Memory from './appliation/games/Memory.ts';
 // @ts-ignore
-import MainMenu from './games/menu/MainMenu.ts';
+import MainMenu from './appliation/games/menu/MainMenu.ts';
 // @ts-ignore
-import UserApi from './games/Api/UserApi.ts';
+import UserApi from './appliation/games/Api/UserApi.ts';
 // eslint-disable-next-line import/extensions
 
 const config = {
@@ -75,7 +75,7 @@ async function getUrlVars() {
       new Phaser.Game(config);
       const popup:HTMLInputElement = document.querySelector('.popup');
       popup.style.opacity = '0';
-       setTimeout(()=>popup.style.display = 'none', 1000);
+      setTimeout(() => popup.style.display = 'none', 1000);
     }
   }
 }

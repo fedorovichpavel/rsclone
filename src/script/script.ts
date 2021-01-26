@@ -23,9 +23,10 @@ window.onload = function () {
         document.querySelectorAll('.scroll').forEach((e:HTMLInputElement) => e.style.transform = 'rotate(180deg)');
         content.style.top = '-30rem';
         article.style.position = 'relative'; article.style.top = '0';
-        page.style.top = '-16rem';
+        page.style.top = '-66vh';
         articleClick = true;
       }
+      // eslint-disable-next-line no-empty
     } else { }
   });
 };

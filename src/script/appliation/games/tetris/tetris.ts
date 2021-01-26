@@ -23,7 +23,7 @@ export default class Tetris extends Phaser.Scene {
 
   private borderLeft: Phaser.GameObjects.Sprite;
 
-  private borderRight: Phaser.GameObjects.Sprite;;
+  private borderRight: Phaser.GameObjects.Sprite;
 
   private group: Phaser.GameObjects.Group;
 

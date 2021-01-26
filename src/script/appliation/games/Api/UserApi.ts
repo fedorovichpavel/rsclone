@@ -1,5 +1,5 @@
 // @ts-ignore
-import { URL } from '../tools.ts';
+import { URL } from '../../../utils/tools.ts';
 // @ts-ignore
 import UserDto from '../dto/UserDto.ts';
 
