@@ -205,7 +205,7 @@ $second_color: rgba(255, 0, 0, 0.5);
     height: 150px;
     margin: -75px 0 0 -75px;
     border-radius: 50%;
-    box-shadow: 0 3px 3px 0 rgb(241, 99, 33);
+    box-shadow: 0 3px 3px 0 rgb(255, 255, 255);
     transform: translate3d(0, 0, 0);
     animation: spin 2s linear infinite;
 }
@@ -222,7 +222,7 @@ $second_color: rgba(255, 0, 0, 0.5);
     left: 5px;
     right: 5px;
     bottom: 5px;
-    box-shadow: 0 3px 3px 0 rgb(255, 228, 32);
+    box-shadow: 0 3px 3px 0 rgb(255, 0, 0);
     -webkit-animation: spin 3s linear infinite;
     animation: spin 3s linear infinite;
 }
@@ -232,7 +232,7 @@ $second_color: rgba(255, 0, 0, 0.5);
     left: 15px;
     right: 15px;
     bottom: 15px;
-    box-shadow: 0 3px 3px 0 rgba(61, 175, 255, 1);
+    box-shadow: 0 3px 3px 0 rgb(255, 255, 255);
     animation: spin 1.5s linear infinite;
 }
 

@@ -13,8 +13,18 @@ import join from '../../assets/audio/join.mp3';
 import broken from '../../assets/audio/broken.mp3';
 // @ts-ignore
 import fall from '../../assets/audio/fall.mp3';
+// @ts-ignore
+import gameovermp3 from '../../assets/audio/gameover.mp3';
+// @ts-ignore
+import swipe from '../../assets/audio/swipe.mp3';
+// @ts-ignore
+import carDrive from '../../assets/audio/carDrive.mp3';
+// @ts-ignore
+import driving from '../../assets/audio/Driving.mp3';
+// @ts-ignore
+import dtp from '../../assets/audio/dtp.mp3';
 
-const defaultScreen = require('../../assets/image/screen.png');
+const defaultScreen = require('../../assets/image/map2.png');
 const road = require('../../assets/image/road.png');
 const car = require('../../assets/image/car.png');
 const carPlayer = require('../../assets/image/carPlayer.png');
@@ -41,7 +51,10 @@ const covid = require('../../assets/image/covid.png');
 const space = require('../../assets/image/space.png');
 const coin = require('../../assets/image/coin.png');
 const breakmap = require('../../assets/image/breakmap.png');
-const fullscr = require('../../assets/image/fullscreen.jpg');
+const fullscr = require('../../assets/image/fullscreen.png');
+const muteon = require('../../assets/image/muteon.png');
+const muteoff = require('../../assets/image/muteoff.png');
+
 
 export default class Preload extends Phaser.Scene {
   constructor() {
@@ -77,6 +90,8 @@ export default class Preload extends Phaser.Scene {
     this.load.image('coin', coin);
     this.load.image('breakmap', breakmap);
     this.load.image('fullscreen', fullscr);
+    this.load.image('muteon', muteon);
+    this.load.image('muteoff', muteoff);
 
     this.load.audio('jump', jump);
     this.load.audio('boom', boom);
@@ -85,6 +100,11 @@ export default class Preload extends Phaser.Scene {
     this.load.audio('broken', broken);
     this.load.audio('join', join);
     this.load.audio('fall', fall);
+    this.load.audio('gameovermp3', gameovermp3);
+    this.load.audio('swipe', swipe);
+    this.load.audio('carDrive', carDrive);
+    this.load.audio('driving', driving);
+    this.load.audio('dtp', dtp);
   }
 
   create() {

@@ -6,12 +6,12 @@ import CustomButton from './buttons/CustomButton.ts';
 
 const style = {
   fontFamily: 'Pixel',
-  color: '#000000',
+  color: '#fff',
   fontSize: '39px',
 };
 const style2 = {
   fontFamily: 'Pixel',
-  color: '#000000',
+  color: '#fff',
   fontSize: '25px',
   align: 'center',
 };
@@ -22,6 +22,8 @@ export default class GameOver extends Phaser.Scene {
   private title: Phaser.GameObjects.Text;
 
   private scoreTitle: Phaser.GameObjects.Text;
+
+  private overSound: Phaser.Sound.BaseSound;
 
   private config: { type: number,
                     physics: {default: string},
@@ -37,10 +39,14 @@ export default class GameOver extends Phaser.Scene {
   }
 
   create() {
+    this.overSound = this.sound.add('gameovermp3');
+    this.overSound.play();
     this.add.tileSprite(0, 0, 220, 460, 'defaultScreen').setOrigin(0, 0);
     this.title = this.add.text(0, 110, 'Game Over', style);
+    this.title.setStroke('#000', 0.7);
     this.title.x = (this.config.width - this.title.width) / 2;
     this.scoreTitle = this.add.text(0, 150, `Your score: \n${this.Memory.getScorePoint()}`, style2);
+    this.scoreTitle.setStroke('#000', 0.7);
     this.scoreTitle.x = (this.config.width - this.scoreTitle.width) / 2;
 
     const btnRestart = new CustomButton(this, 110, 240, 'Restart');
