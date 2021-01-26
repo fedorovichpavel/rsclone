@@ -19,7 +19,6 @@ export default class MainMenu extends Phaser.Scene {
   }
 
   create() {
-    console.log(this);
     this.background = this.add.tileSprite(0, 0, 220, 460, 'defaultScreen').setOrigin(0, 0);
     this.text = this.add.text(0, 45, 'TETRIS',
       {
@@ -75,7 +74,7 @@ export default class MainMenu extends Phaser.Scene {
       });
 
     const btnFullScreen = this.add.image(200, 20, 'fullscreen', 0).setInteractive().setScale(0.2);
-    btnFullScreen.on('pointerup', function () {
+    btnFullScreen.on('pointerup', function clicks() {
       if (this.scale.isFullscreen) {
         btnFullScreen.setFrame(0);
 
@@ -90,21 +89,20 @@ export default class MainMenu extends Phaser.Scene {
       }
     }, this);
 
-
     if (this.game.sound.mute) {
       this.btnMute = this.add.image(50, 400, 'muteon', 0).setInteractive().setScale(0.35);
-    } else if (!this.game.sound.mute){
+    } else if (!this.game.sound.mute) {
       this.btnMute = this.add.image(50, 400, 'muteoff', 0).setInteractive().setScale(0.35);
     }
-
   }
+
   update() {
     this.btnMute.on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN, () => {
       this.game.sound.mute = !this.game.sound.mute;
     }, this);
     if (this.game.sound.mute) {
       this.btnMute = this.add.image(50, 400, 'muteoff', 0).setInteractive().setScale(0.35);
-    } else if (!this.game.sound.mute){
+    } else if (!this.game.sound.mute) {
       this.btnMute = this.add.image(50, 400, 'muteon', 0).setInteractive().setScale(0.35);
     }
   }

@@ -14,18 +14,18 @@ window.onload = function () {
       const content:HTMLInputElement = document.querySelector('.content');
       const page:HTMLInputElement = document.querySelector('.downpage');
       if (articleClick) {
-        document.querySelectorAll('.scroll').forEach((e:HTMLInputElement) => e.style.transform = 'rotate(0)');
+        document.querySelectorAll('.scroll').forEach((e:HTMLInputElement) => { e.style.transform = 'rotate(0)'; });
         content.style.top = '0';
         article.style.position = 'absolute'; article.style.top = '30rem';
         page.style.top = '0';
         articleClick = false;
       } else {
-        document.querySelectorAll('.scroll').forEach((e:HTMLInputElement) => e.style.transform = 'rotate(180deg)');
+        document.querySelectorAll('.scroll').forEach((e:HTMLInputElement) => { e.style.transform = 'rotate(180deg)'; });
         content.style.top = '-30rem';
         article.style.position = 'relative'; article.style.top = '0';
         page.style.top = '-16rem';
         articleClick = true;
       }
-    } else { }
+    }
   });
 };

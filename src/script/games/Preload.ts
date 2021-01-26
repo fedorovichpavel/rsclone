@@ -55,7 +55,6 @@ const fullscr = require('../../assets/image/fullscreen.png');
 const muteon = require('../../assets/image/muteon.png');
 const muteoff = require('../../assets/image/muteoff.png');
 
-
 export default class Preload extends Phaser.Scene {
   constructor() {
     super('Preload');

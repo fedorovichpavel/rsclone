@@ -3,7 +3,9 @@ import * as Phaser from 'phaser';
 // @ts-ignore
 // eslint-disable-next-line import/extensions
 import GesturesPlugin from 'phaser3-rex-plugins/plugins/gestures-plugin.js';
+// eslint-disable-next-line
 import './script';
+// eslint-disable-next-line
 import './hovers';
 // @ts-ignore
 import Race from './games/race/Race.ts';
@@ -72,7 +74,8 @@ async function getUrlVars() {
       new Phaser.Game(config);
       const popup:HTMLInputElement = document.querySelector('.popup');
       popup.style.opacity = '0';
-       setTimeout(()=>popup.style.display = 'none', 1000);
+      // eslint-disable-next-line
+      setTimeout(() => popup.style.display = 'none', 1000);
     }
   }
 }
