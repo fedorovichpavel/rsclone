@@ -57,6 +57,12 @@ export default class Snake extends Phaser.Scene {
 
   private swipe: Swipe;
 
+  private flowerSound: Phaser.Sound.BaseSound;
+
+  private mouseSound: Phaser.Sound.BaseSound;
+
+  private snakeSound: Phaser.Sound.BaseSound;
+
   constructor() {
     super({
       key: 'SnakeGame',
@@ -85,6 +91,12 @@ export default class Snake extends Phaser.Scene {
       right: { x: 1, y: 0 },
     };
     this.direction = 'right';
+
+    this.flowerSound = this.sound.add('join');
+    this.mouseSound = this.sound.add('rotate');
+    this.snakeSound = this.sound.add('rotate');
+
+    this.swipe = new Swipe(this);
 
     this.add.tileSprite(
       this.gameWidth / 2,
@@ -136,11 +148,13 @@ export default class Snake extends Phaser.Scene {
       const y = this.convertY(first.y + this.offsets[this.direction].y);
 
       if (this.snake.some((s) => s.x === x && s.y === y)) {
+        this.snakeSound.play();
         this.gameOver();
         return;
       }
 
       if (this.flowers.some((f) => f.x === x && f.y === y)) {
+        this.flowerSound.play();
         this.gameOver();
         return;
       }
@@ -168,6 +182,7 @@ export default class Snake extends Phaser.Scene {
       const eaten = this.mice.filter((m) => m.x === head.x && m.y === head.y);
 
       if (eaten.length > 0) {
+        this.mouseSound.play();
         this.score += 1;
         this.mice = this.mice.filter((m) => m.x !== head.x || m.y !== head.y);
         eaten.forEach((item) => {
@@ -287,6 +302,7 @@ export default class Snake extends Phaser.Scene {
 
   handleKey(e) {
     switch (e.code) {
+      case 'this.swipe.left':
       case 'ArrowLeft':
         if (this.direction === 'right') {
           this.reverse();
@@ -294,6 +310,7 @@ export default class Snake extends Phaser.Scene {
           this.direction = 'left';
         }
         break;
+      case 'this.swipe.right':
       case 'ArrowRight':
         if (this.direction === 'left') {
           this.reverse();
@@ -301,6 +318,7 @@ export default class Snake extends Phaser.Scene {
           this.direction = 'right';
         }
         break;
+      case 'this.swipe.up':
       case 'ArrowUp':
         if (this.direction === 'down') {
           this.reverse();
@@ -308,6 +326,7 @@ export default class Snake extends Phaser.Scene {
           this.direction = 'up';
         }
         break;
+      case 'this.swipe.down':
       case 'ArrowDown':
         if (this.direction === 'up') {
           this.reverse();
