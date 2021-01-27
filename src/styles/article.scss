@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+$article_family: 'Montserrat', sans-serif;
+$article_font_size: 16px;
+$article_font_size_header: 30px;
+
+.wrap-article {
+  padding: 20px;
+  line-height: 1.5;
+  font-size: 16px;
+  position: relative;
+
+  article {
+    padding: 40px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, .7);
+  }
+
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+  .article-nav {
+    padding: 10px 0;
+  }
+
+  .article-nav a {
+    font-family: $article_family;
+    font-size: $article_font_size;
+    text-decoration: none;
+    &:hover {
+        color: rgb(241, 99, 33);
+    }
+  }
+
+  h3,
+  h4,
+  h5 {
+    font-family: $article_family;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    padding: 20px 0;
+    border-bottom: 1px solid #272727;
+    text-transform: uppercase;
+    // letter-spacing: 1px;
+    font-size: $article_font_size_header;
+  }
+
+  p {
+    font-family: $article_family;
+    font-size: $article_font_size;
+    text-align: justify;
+  }
+
+  .article-authors,
+  .article-data {
+    padding: 10px 0;
+  }
+
+  .article-authors li{
+    display: inline-block;
+    padding: 5px;
+    list-style-type: none;
+    font-family: $article_family;
+    font-size: $article_font_size;
+    font-style: italic;
+  }
+
+  .article-data {
+    font-style: italic;
+  }
+
+  .article-content,
+  .article-content > div {
+    padding: 20px 0;
+    font-size: $article_font_size_header
+  }
+
+  .article-content h4 {
+    margin-bottom: 20px;
+    font-size: .9rem;
+  }
+
+  .article-content h5 {
+    margin-bottom: 10px;
+    font-size: .6rem;
+  }
+
+  .article-item {
+    margin-bottom: 20px;
+  }
+
+  .article-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .spoiler {
+    padding: 20px;
+
+    figure {
+      width: 90%;
+      margin: auto;
+      padding: 10px 30px;
+      border-radius: 20px;
+      background-color: #DDD;
+
+      pre {
+        font-size: $article_font_size;
+      }
+    }
+
+    figcaption {
+      font-family: $article_family;
+      font-size: $article_font_size;
+      text-align: center;
+    }
+  }
+
+}

@@ -68,10 +68,110 @@
             </div>
 
             <div class="article blocks">
-                <h2>Article</h2>
-                <p>An article is any member of a class of dedicated words that are used with noun phrases to mark the identifiability of the referents of the noun phrases. The category of articles constitutes a part of speech.</p>
-                <p>In English, both "the" and "a" are articles, which combine with a noun to form a noun phrase. Articles typically specify grammatical definiteness of the noun phrase, but in many languages they carry additional grammatical information such
-                    as gender, number, and case. Articles are part of a broader category called determiners, which also include demonstratives, possessive determiners, and quantifiers. In linguistic interlinear glossing, articles are abbreviated as art.</p>
+              <div class="wrap-article">
+                <article>
+                  <header class="article-header">
+                    <h3>OMG – Oh, My Games or a series of games "Tetris"</h3>
+                    <ul class="article-authors">
+                      <li>Gursky Mikhail,</li>
+                      <li>Fedorovich Pavel,</li>
+                      <li>Migacheva Marina,</li>
+                    </ul>
+                    <p class="article-data">January, 2021</p>
+                  </header>
+                  <nav class="article-nav">
+                    <ul>
+                      <li><a href="#foreword">Foreword</a></li>
+                      <li><a href="#description">Description of the project</a></li>
+                      <li><a href="#teamwork">Organization of teamwork</a></li>
+                      <li><a href="#architecture">Project architecture. Features of the implementation</a></li>
+                      <li><a href="#progress">Development progress</a></li>
+                      <li><a href="#conclusion">Conclusion</a></li>
+                    </ul>
+                  </nav>
+                  <div class="article-content">
+                    <div id="foreword">
+                      <h4>Foreword</h4>
+                      <p>It so happened that we ended up with the same mentor, crossed paths during the study on various issues and decided to perform this task together. We all were on these courses for the first time and the goal of training for each of us is similar - to find ourselves in front-end development, to improve skills, participate in interesting projects and get a dream job.</p>
+                      <p>Из сложностей можно назвать ключевую – большой объем информации в сжатые сроки, пришлось сражаться. На командных проектах было интереснее, была поддержка и страховка от команды, можно было совместно обсуждать и решать многие вопросы, делиться опытом и получать его взамен, сильные стороны каждого из команды позволяли делать проект лучше.</p>
+                    </div>
+                    <div id="description">
+                      <h4>Description of the project</h4>
+                      <div class="article-item">
+                        <h5>WHAT IS THE POINT</h5>
+                        <p>Surely the word "Tetris" evokes in many nostalgic memories of the good old days, which were filled with characteristic music and pixel graphics. Cancel everything, reschedule appointments - today we're going to talk about creating a series of Tetris games that you can play in the browser and spend a whole day on.</p>
+                        <p>The very idea: to create a version of the game for the browser, which would include several "nostalgic" games, the ability to save the results and access to statistics.</p>
+                        <p>In the beginning, sketching the idea did not raise any concerns - it was necessary to describe the logic, draw the interface and connect them.  It didn't look too complicated, but when we sat down to discuss the details, the list was quite impressive.</p>
+                      </div>
+                      <div class="article-item">
+                        <h5>Основные фичи и особенности их реализации</h5>
+                        <p>Для проекта были определены и реализованы следующие важные моменты в соответствии с условием задания:</p>
+                      </div>
+                      <div class="article-item">
+                        <h5>Скриншоты интерфейса</h5>
+                        <p>Для проекта были определены и реализованы следующие важные моменты в соответствии с условием задания:</p>
+                      </div>
+                    </div>
+                    <div id="teamwork">
+                      <h4>Organization of teamwork</h4>
+                    </div>
+                    <div id="architecture">
+                      <h4>Project architecture. Features of the implementation</h4>
+                      <div class="article-item">
+                        <h5>Описание библиотек, фреймворков, технологий, которые были задействованы в процессе разработки приложения, мотивация использования, преимущества и недостатки</h5>
+                        <p>Surely the word "Tetris" evokes in many nostalgic memories of the good old days, which were filled with characteristic music and pixel graphics. Cancel everything, reschedule appointments - today we're going to talk about creating a series of Tetris games that you can play in the browser and spend a whole day on.</p>
+                      </div>
+                      <div class="article-item">
+                        <h5>Архитектура проекта</h5>
+                        <p>Surely the word "Tetris" evokes in many nostalgic memories of the good old days, which were filled with characteristic music and pixel graphics. Cancel everything, reschedule appointments - today we're going to talk about creating a series of Tetris games that you can play in the browser and spend a whole day on.</p>
+                      </div>
+                      <div class="article-item">
+                        <h5>Самые сложные и интересные решенные технические проблемы</h5>
+                        <p>Surely the word "Tetris" evokes in many nostalgic memories of the good old days, which were filled with characteristic music and pixel graphics. Cancel everything, reschedule appointments - today we're going to talk about creating a series of Tetris games that you can play in the browser and spend a whole day on.</p>
+                        <p>Формирование конфигурации игры через const config:</p>
+                        <p><button>смотреть код</button></p>
+                        <div class="spoiler">
+                          <figure>
+                            <pre>
+                              const config = {
+                                type: Phaser.WEBGL,
+                                physics: {
+                                  default: 'arcade',
+                                  /* arcade: {
+                                    debug: true,
+                                  }, */
+                                },
+                                audio: {
+                                  disableWebAudio: true,
+                                },
+                                plugins: {
+                                  scene: [{
+                                    key: 'rexGestures',
+                                    plugin: GesturesPlugin,
+                                    mapping: 'rexGestures',
+                                  }],
+                                },
+                                width: 220,
+                                height: 460,
+                                parent: 'game',
+                                scene: [Preload, MainMenu, Race, Tetris, Breakout,
+                                SpaceAttack, FlappyBird, Snake, GameOver],
+                              };
+                          </pre>
+                          </figure>
+                          <figcaption>Листинг кода - формирование конфигурации игры</figcaption>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="progress">
+                      <h4>Development progress</h4>
+                    </div>
+                    <div id="conclusion">
+                      <h4>Conclusion</h4>
+                    </div>
+                  </div>
+                </article>
+              </div>
             </div>
 
             <footer class="footer blocks">
