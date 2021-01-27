@@ -6,7 +6,7 @@ export default class ElementBuilder {
     if (classes) this.element.classList.add(...classes.split(' '));
     if (dataAttr.length) {
       dataAttr.forEach(([attrName, attrValue]) => {
-        if (attrName.match(/href|value|id|type|placeholder|cols|rows|autocorrect|spellcheck|name/)) {
+        if (attrName.match(/src|href|value|id|type|placeholder|cols|rows|autocorrect|spellcheck|name/)) {
           this.element.setAttribute(attrName, attrValue);
         } else {
           this.element.dataset[attrName] = attrValue;
@@ -24,7 +24,6 @@ export default class ElementBuilder {
   }
 
   appendToBody() {
-    console.log(this.element);
     document.body.append(this.element);
   }
 

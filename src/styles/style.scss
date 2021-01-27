@@ -253,7 +253,7 @@ body {
     max-height: 1080px;
     width: 100%;
     height: 100%;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 .wrapper {
@@ -312,8 +312,7 @@ body {
     height: 8vh;
     border: #fa004b 5px solid;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     a {
         color: #ff4a95;
         text-decoration: none;
@@ -322,6 +321,18 @@ body {
             color: rgb(241, 99, 33);
         }
     }
+  .avtar {
+    margin-top: 2%;
+    width: 40px;
+    height: 40px;
+    border-radius:50%;
+
+
+  }
+  .name {
+    margin-top: 2%;
+  }
+
 }
 
 .content {

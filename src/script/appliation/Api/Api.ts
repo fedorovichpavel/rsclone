@@ -1,11 +1,11 @@
 // @ts-ignore
-import { URL } from '../../../utils/tools.ts';
+import { URL } from '../../utils/tools.ts';
 // @ts-ignore
-import UserDto from '../dto/UserDto.ts';
+import UserDto from '../games/dto/UserDto.ts';
 
 const axios = require('axios').default;
 
-export default class UserApi {
+export default class Api {
   public getListUsers = async () => {
     const response = await axios.get(`${URL}/score`).then(((r: Promise<Array<UserDto>>) => r));
     return response;
@@ -44,8 +44,8 @@ export default class UserApi {
       response.data.scorePointSpaceBreak);
   }
 
-  public auth = async (clientId1, clientSecret1, code1) => {
-    const response = await axios.get(`https://score-api2020q3.herokuapp.com/login/github/${code1}`);
+  public auth = async (code) => {
+    const response = await axios.get(`https://score-api2020q3.herokuapp.com/login/github/${code}`);
     return response.data;
   }
 }

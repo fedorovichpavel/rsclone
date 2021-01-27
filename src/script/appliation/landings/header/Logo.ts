@@ -1,5 +1,7 @@
 // @ts-ignore
 import ElementBuilder from '../../../utils/ElementBuilder.ts';
+// @ts-ignore
+import { COLOR } from '../../../utils/tools.ts';
 
 export default class Logo {
   public container: ElementBuilder;
@@ -14,7 +16,7 @@ export default class Logo {
     this.insetSpans(4, this.logotip, null, null);
     this.name = new ElementBuilder('h1', null);
     this.insetSpans(6, this.name, 'sym', 'TETRIS');
-    console.log(this.logotip, 'LOGO');
+    this.logotip.element.style.alignItems = 'center';
     this.container.append(this.logotip);
     this.container.append(this.name);
   }
@@ -26,6 +28,7 @@ export default class Logo {
       if (text) {
         const textSpanArr = text.split('');
         span.element.innerHTML = textSpanArr[i];
+        span.element.style.color = COLOR[i];
       }
       inset.append(span);
     }

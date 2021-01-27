@@ -1,5 +1,5 @@
 // @ts-ignore
-import UserApi from './Api/UserApi.ts';
+import Api from '../Api/Api.ts';
 
 export default class Memory {
   private static exists: any;
@@ -18,13 +18,13 @@ export default class Memory {
                     parent: string,
                     scene: any[] };
 
-  public api: UserApi;
+  public api: Api;
 
   constructor() {
     if (Memory.exists) return Memory.instance;
     Memory.instance = this;
     Memory.exists = true;
-    this.api = new UserApi();
+    this.api = new Api();
   }
 
   getScorePoint():number {
