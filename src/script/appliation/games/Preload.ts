@@ -87,7 +87,7 @@ export default class Preload extends Phaser.Scene {
     this.load.image('flower', flower);
     this.load.image('ground1', ground1);
     this.load.image('tree', tree);
-    this.load.image('bomb',bomb);
+    this.load.image('bomb', bomb);
     this.load.image('snowball', snowball);
     this.load.image('snowman', snowman);
     this.load.image('snowground', snowground);

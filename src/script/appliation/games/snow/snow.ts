@@ -11,7 +11,6 @@ const style = {
 };
 
 export default class Snow extends Phaser.Scene {
-
   private gameWidth: number;
 
   private gameHeight: number;
@@ -119,21 +118,21 @@ export default class Snow extends Phaser.Scene {
     const bool = Math.round(Math.random());
     let itemX;
     let itemY;
-    if(bool === 0) { itemX = Math.random()*100*this.boardSize;  itemY = 0;}
-    if(bool === 1) { itemY = Math.random()*100*this.boardSize;  itemX = 0;}
+    if (bool === 0) { itemX = Math.random() * 100 * this.boardSize; itemY = 0; }
+    if (bool === 1) { itemY = Math.random() * 100 * this.boardSize; itemX = 0; }
     return [
       itemX,
-      itemY
-    ]
+      itemY,
+    ];
   }
 
   createSnowballs(count) {
     const [itemX, itemY] = this.getXY();
     this.snowballs = this.physics.add.group({
-                key: 'snowball',
-                repeat: count,
-                setXY: { x: itemX, y: itemY, stepX: 50 }
-            });
+      key: 'snowball',
+      repeat: count,
+      setXY: { x: itemX, y: itemY, stepX: 50 },
+    });
 
     this.snowballs.children.iterate((child) => {
       child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
@@ -148,16 +147,16 @@ export default class Snow extends Phaser.Scene {
 
   createBombs(count) {
     const [itemX, itemY] = this.getXY();
-    for(let i = 0; i < count; i++) {
+    for (let i = 0; i < count; i += 1) {
       this.bombs = this.physics.add.group();
       this.physics.add.collider(this.bombs, this.platforms);
       this.physics.add.collider(this.snowman, this.bombs, this.hitBomb, null, this);
 
-      let x = (this.snowman.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
-      let bomb = this.bombs.create(itemX, itemY, 'bomb');
-          bomb.setBounce(1);
-          bomb.setCollideWorldBounds(true);
-          bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
+      // const x = (this.snowman.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
+      const bomb = this.bombs.create(itemX, itemY, 'bomb');
+      bomb.setBounce(1);
+      bomb.setCollideWorldBounds(true);
+      bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
     }
   }
 
@@ -165,7 +164,7 @@ export default class Snow extends Phaser.Scene {
     this.tableScore.text = `Score:${this.score}`;
     this.tableHealth.text = `Health: ${this.health}`;
 
-    if(this.health <= 0) {
+    if (this.health <= 0) {
       this.physics.pause();
       this.snowman.setTint(0xff0000);
       this.gameOver();
@@ -193,28 +192,27 @@ export default class Snow extends Phaser.Scene {
   }
 
   moveSnowman() {
-      if (this.cursors.left.isDown) {
-          this.snowman.setVelocityX(-160);
-      } else if (this.cursors.right.isDown) {
-          this.snowman.setVelocityX(160);
-      }
-      else if (this.cursors.up.isDown) {
-        this.snowman.setVelocityY(-160);
-      } else if (this.cursors.down.isDown) {
-        this.snowman.setVelocityY(160);
-      } else {
-          this.snowman.setVelocityX(0);
-          this.snowman.setVelocityY(0);
-      }
-      if (this.cursors.up.isDown && this.snowman.body.touching.down) {
-          this.snowman.setVelocityY(-330);
-      }
+    if (this.cursors.left.isDown) {
+      this.snowman.setVelocityX(-160);
+    } else if (this.cursors.right.isDown) {
+      this.snowman.setVelocityX(160);
+    } else if (this.cursors.up.isDown) {
+      this.snowman.setVelocityY(-160);
+    } else if (this.cursors.down.isDown) {
+      this.snowman.setVelocityY(160);
+    } else {
+      this.snowman.setVelocityX(0);
+      this.snowman.setVelocityY(0);
+    }
+    if (this.cursors.up.isDown && this.snowman.body.touching.down) {
+      this.snowman.setVelocityY(-330);
+    }
   }
 
   exitGame() {
-      if (this.cursors.space.isDown) {
-        this.gameOver();
-      }
+    if (this.cursors.space.isDown) {
+      this.gameOver();
+    }
   }
 
   gameOver() {
