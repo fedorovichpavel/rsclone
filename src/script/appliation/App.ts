@@ -80,6 +80,9 @@ export default class App {
         localStorage.setItem('CODE_LOGIN', this.code);
         this.isLogin = true;
       }
-    } else this.isLogin = false;
+    } else {
+      this.isLogin = false;
+      document.body.classList.add('loaded');
+    }
   }
 }

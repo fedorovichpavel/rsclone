@@ -17,6 +17,7 @@ export default class Login {
       this.code = this.App.codeLogin();
       this.App.api.auth(this.code).then((response) => {
         this.createUserBar(response);
+        document.body.classList.add('loaded');
       });
     } else {
       this.createLoginBar();

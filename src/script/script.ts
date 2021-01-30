@@ -1,11 +1,5 @@
 // eslint-disable-next-line func-names
 window.onload = function () {
-  document.body.classList.add('loaded_hiding');
-  window.setTimeout(() => {
-    document.body.classList.add('loaded');
-    document.body.classList.remove('loaded_hiding');
-  }, 500);
-
   let articleClick = false;
 
   this.document.addEventListener('click', (event) => {
