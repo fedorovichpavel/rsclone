@@ -17,6 +17,8 @@ import FlappyBird from '../appliation/games/flappy-bird/flappy-bird.ts';
 // @ts-ignore
 import Snake from '../appliation/games/snake/snake.ts';
 // @ts-ignore
+import Snow from '../appliation/games/snow/snow.ts';
+// @ts-ignore
 import GameOver from '../appliation/games/GameOver.ts';
 
 export const URL = 'https://score-api2020q3.herokuapp.com';
@@ -42,5 +44,5 @@ export const CONFIG = {
   width: 220,
   height: 460,
   parent: 'game',
-  scene: [Preload, MainMenu, Race, Tetris, Breakout, SpaceAttack, FlappyBird, Snake, GameOver],
+  scene: [Preload, MainMenu, Race, Tetris, Breakout, SpaceAttack, FlappyBird, Snake, Snow, GameOver],
 };

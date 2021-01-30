@@ -23,6 +23,10 @@ import carDrive from '../../../assets/audio/carDrive.mp3';
 import driving from '../../../assets/audio/Driving.mp3';
 // @ts-ignore
 import dtp from '../../../assets/audio/dtp.mp3';
+// @ts-ignore
+import snow from '../../../assets/audio/snow.mp3';
+// @ts-ignore
+import boombom from '../../../assets/audio/snowboom.mp3';
 
 const defaultScreen = require('../../../assets/image/map2.png');
 const road = require('../../../assets/image/road.png');
@@ -40,6 +44,11 @@ const tail = require('../../../assets/image/tail.png');
 const mouse = require('../../../assets/image/mouse.png');
 const flower = require('../../../assets/image/flower.png');
 const ground1 = require('../../../assets/image/ground1.png');
+const snowground = require('../../../assets/image/snowground.png');
+const snowman = require('../../../assets/image/snowman.png');
+const snowball = require('../../../assets/image/snowball.png');
+const bomb = require('../../../assets/image/bomb.png');
+const tree = require('../../../assets/image/tree.png');
 const ball = require('../../../assets/image/ball.png');
 const paddle = require('../../../assets/image/paddle.png');
 const ship = require('../../../assets/image/ship.png');
@@ -77,6 +86,11 @@ export default class Preload extends Phaser.Scene {
     this.load.image('mouse', mouse);
     this.load.image('flower', flower);
     this.load.image('ground1', ground1);
+    this.load.image('tree', tree);
+    this.load.image('bomb', bomb);
+    this.load.image('snowball', snowball);
+    this.load.image('snowman', snowman);
+    this.load.image('snowground', snowground);
     this.load.image('ball', ball);
     this.load.image('paddle', paddle);
     this.load.image('ship', ship);
@@ -104,6 +118,8 @@ export default class Preload extends Phaser.Scene {
     this.load.audio('carDrive', carDrive);
     this.load.audio('driving', driving);
     this.load.audio('dtp', dtp);
+    this.load.audio('snow', snow);
+    this.load.audio('boombom', boombom);
   }
 
   create() {

@@ -73,6 +73,14 @@ export default class MainMenu extends Phaser.Scene {
         this.scene.start('SnakeGame');
       });
 
+    const btnSnowGame = new CustomButton(this, 110, 365, 'Snow game');
+    this.add.existing(btnSnowGame);
+
+    btnSnowGame.setInteractive()
+      .on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN, () => {
+        this.scene.start('SnowGame');
+      });
+
     const btnFullScreen = this.add.image(200, 20, 'fullscreen', 0).setInteractive().setScale(0.2);
     btnFullScreen.on('pointerup', function clicks() {
       if (this.scale.isFullscreen) {
