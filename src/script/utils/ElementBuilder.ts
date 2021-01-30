@@ -38,4 +38,8 @@ export default class ElementBuilder {
   on(event, callback) {
     this.element.addEventListener(event, callback);
   }
+
+  setDataAtr(indicator:string, name:string) {
+    this.element.dataset[indicator] = name;
+  }
 }
