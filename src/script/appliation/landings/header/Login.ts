@@ -1,6 +1,4 @@
 // @ts-ignore
-import Api from '../../Api/Api.ts';
-// @ts-ignore
 import App from '../../App.ts';
 // @ts-ignore
 import ElementBuilder from '../../../utils/ElementBuilder.ts';
@@ -19,6 +17,7 @@ export default class Login {
       this.code = this.App.codeLogin();
       this.App.api.auth(this.code).then((response) => {
         this.createUserBar(response);
+        document.body.classList.add('loaded');
       });
     } else {
       this.createLoginBar();

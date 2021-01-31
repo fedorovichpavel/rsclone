@@ -10,6 +10,10 @@ import Api from './Api/Api.ts';
 import Main from './landings/main/Main.ts';
 // @ts-ignore
 import { CONFIG } from '../utils/tools.ts';
+// @ts-ignore
+import Footer from './landings/footer/Footer.ts';
+// @ts-ignore
+import addAnumation from '../hovers.ts';
 
 export default class App {
   private static instance: App;
@@ -26,23 +30,30 @@ export default class App {
 
   private main: Main;
 
+  private code: string;
+
+  private footer: Footer;
+
   constructor() {
     if (App.exists) return App.instance;
     App.instance = this;
     App.exists = true;
+    this.container = new ElementBuilder('div', 'wrapper');
     this.init();
   }
 
   init() {
-    if (this.codeLogin()) this.isLogin = true;
-    else this.isLogin = false;
+    this.code = this.codeLogin();
+    this.howToStartAPage();
     this.api = new Api();
     this.header = new Header();
     this.main = new Main();
-    this.container = new ElementBuilder('div', 'wrapper');
-    this.container.append(this.header.container, this.main.container);
+    this.footer = new Footer();
+    this.container.append(this.header.container, this.main.container, this.footer.container);
     this.container.appendToBody();
+    addAnumation();
     if (this.isLogin) {
+      // eslint-disable-next-line no-new
       new Phaser.Game(CONFIG);
     }
   }
@@ -58,5 +69,20 @@ export default class App {
       link[key] = value;
     });
     return link.code;
+  }
+
+  howToStartAPage() {
+    if (this.code) {
+      if (localStorage.getItem('CODE_LOGIN') === this.code) {
+        this.isLogin = false;
+        window.location.href = 'http://localhost:8080/';
+      } else {
+        localStorage.setItem('CODE_LOGIN', this.code);
+        this.isLogin = true;
+      }
+    } else {
+      this.isLogin = false;
+      document.body.classList.add('loaded');
+    }
   }
 }

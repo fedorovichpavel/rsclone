@@ -31,7 +31,10 @@ export default class Main {
     this.statisticBlock = new Statistic();
     this.gameBlock = new Game();
     this.currentGameBlock = new CurrentGame();
-    this.container.append(this.statisticBlock.container, this.gameBlock.container, this.currentGameBlock.container);
+
+    this.container.append(this.statisticBlock.container,
+      this.gameBlock.container,
+      this.currentGameBlock.container);
   }
 
   createPopUpModule() {
