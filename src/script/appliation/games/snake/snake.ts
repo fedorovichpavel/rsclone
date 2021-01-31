@@ -63,6 +63,8 @@ export default class Snake extends Phaser.Scene {
 
   private snakeSound: Phaser.Sound.BaseSound;
 
+  private pauseBtn: any;
+
   constructor() {
     super({
       key: 'SnakeGame',
@@ -131,6 +133,15 @@ export default class Snake extends Phaser.Scene {
 
     this.score = 0;
     this.tableScore = this.add.text(22, 0, `Score: ${this.score}`, style);
+
+    this.pauseBtn = this.add.sprite(180, 5, 'pauseBtn').setOrigin(0, 0);
+    this.pauseBtn.setInteractive()
+      .on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN, () => {
+        this.pauseGame();
+      });
+    this.input.keyboard.on('keydown-P', () => {
+      this.pauseGame();
+    });
   }
 
   update(time, delta) {
@@ -355,5 +366,11 @@ export default class Snake extends Phaser.Scene {
       this.scene.stop();
       this.scene.start('GameOver');
     }, 1000);
+  }
+
+  private pauseGame() {
+    this.Memory.setPrevGame('SnakeGame');
+    this.scene.pause();
+    this.scene.launch('PauseMenu');
   }
 }

@@ -1,7 +1,5 @@
 // @ts-ignore
 import ElementBuilder from '../../../utils/ElementBuilder.ts';
-// @ts-ignore
-import { createLetterContainers, createLetterArray, createLetterLayers } from '../../../hovers.ts';
 
 export default class Article {
   public container: ElementBuilder;

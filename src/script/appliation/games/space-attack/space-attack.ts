@@ -31,6 +31,8 @@ export default class Breakout extends Phaser.Scene {
 
   private shotSound: Phaser.Sound.BaseSound;
 
+  private pauseBtn: any;
+
   constructor() {
     super('spaceAttack');
     this.Memory = new Memory();
@@ -62,6 +64,15 @@ export default class Breakout extends Phaser.Scene {
     this.input.on('pointermove', function pMove(pointer) {
       this.ship.x = Phaser.Math.Clamp(pointer.x, 10, 210);
     }, this);
+
+    this.pauseBtn = this.add.sprite(180, 5, 'pauseBtn').setOrigin(0, 0);
+    this.pauseBtn.setInteractive()
+      .on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN, () => {
+        this.pauseGame();
+      });
+    this.input.keyboard.on('keydown-P', () => {
+      this.pauseGame();
+    });
   }
 
   update() {
@@ -235,5 +246,11 @@ export default class Breakout extends Phaser.Scene {
         this.bulletGen();
       }
     }
+  }
+
+  pauseGame() {
+    this.Memory.setPrevGame('spaceAttack');
+    this.scene.pause();
+    this.scene.launch('PauseMenu');
   }
 }
