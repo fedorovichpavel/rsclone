@@ -20,6 +20,8 @@ import Snake from '../appliation/games/snake/snake.ts';
 import Snow from '../appliation/games/snow/snow.ts';
 // @ts-ignore
 import GameOver from '../appliation/games/GameOver.ts';
+// @ts-ignore
+import PauseMenu from '../appliation/games/menu/PauseMenu.ts';
 
 export const URL = 'https://score-api2020q3.herokuapp.com';
 export const COLOR = ['rgb(241,99,33)', 'rgb(255,228,32)', 'rgb(0,255,21)', 'rgb(0,60,255)', 'rgb(255,0,0)', 'rgb(199,33,241)'];
@@ -44,5 +46,17 @@ export const CONFIG = {
   width: 220,
   height: 460,
   parent: 'game',
-  scene: [Preload, MainMenu, Race, Tetris, Breakout, SpaceAttack, FlappyBird, Snake, Snow, GameOver],
+  scene: [
+    Preload,
+    MainMenu,
+    Race,
+    Tetris,
+    Breakout,
+    SpaceAttack,
+    FlappyBird,
+    Snake,
+    Snow,
+    GameOver,
+    PauseMenu,
+  ],
 };

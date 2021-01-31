@@ -37,7 +37,11 @@ export default class Race extends Phaser.Scene {
 
   private drivingSound: Phaser.Sound.BaseSound;
 
-  private dtpSound : Phaser.Sound.BaseSound;
+  private dtpSound: Phaser.Sound.BaseSound;
+
+  private pauseBtn: Phaser.GameObjects.Image;
+
+  private isPaused: boolean;
 
   constructor() {
     super('RaceGame');
@@ -46,6 +50,7 @@ export default class Race extends Phaser.Scene {
   }
 
   create() {
+    this.isPaused = false;
     this.arrEnemyCar = [];
     this.score = 0;
     this.speed = 5;
@@ -59,11 +64,25 @@ export default class Race extends Phaser.Scene {
     this.spawnEnemyCar();
     this.physics.add.collider(this.car, this.arrEnemyCar, () => this.gameOver());
     this.tableScore = this.add.text(22, 0, `Score:${this.score}`, style);
+    this.pauseBtn = this.add.sprite(180, 5, 'pauseBtn').setOrigin(0, 0);
+
+    this.pauseBtn.setInteractive()
+      .on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN, () => {
+        this.pauseGame();
+      });
+    this.input.keyboard.on('keydown-P', () => {
+      this.pauseGame();
+    });
   }
 
   update() {
     if (!this.drivingSound.isPlaying && !this.drivingSound.isPaused) {
       this.drivingSound.play();
+    }
+
+    if (this.isPaused) {
+      this.drivingSound.play();
+      this.isPaused = false;
     }
     this.road.tilePositionY -= this.speed;
     this.moveCarLeftAndRight();
@@ -152,7 +171,7 @@ export default class Race extends Phaser.Scene {
     }, 500);
   }
 
-  private updateSpeed() {
+  updateSpeed() {
     // eslint-disable-next-line default-case
     switch (this.score) {
       case 150:
@@ -188,5 +207,13 @@ export default class Race extends Phaser.Scene {
         this.speed += 1;
         break;
     }
+  }
+
+  pauseGame() {
+    this.drivingSound.pause();
+    this.Memory.setPrevGame('RaceGame');
+    this.isPaused = true;
+    this.scene.pause();
+    this.scene.launch('PauseMenu');
   }
 }

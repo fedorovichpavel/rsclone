@@ -33,7 +33,7 @@ export default class Login {
   // eslint-disable-next-line class-methods-use-this
   createUserBar(user) {
     const img = new ElementBuilder('img', 'avtar', ['src', user.avatar_url]);
-    const a = new ElementBuilder('a', 'name', ['href', user.url]);
+    const a = new ElementBuilder('a', 'name', ['href', user.html_url]);
     a.element.text = user.login;
     const signOutBtn = new ElementBuilder('button', '');
     signOutBtn.element.innerHTML = 'Sign Out';

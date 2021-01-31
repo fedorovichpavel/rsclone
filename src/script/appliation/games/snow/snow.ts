@@ -53,6 +53,8 @@ export default class Snow extends Phaser.Scene {
 
   private bombSound: Phaser.Sound.BaseSound;
 
+  private pauseBtn: any;
+
   constructor() {
     super({
       key: 'SnowGame',
@@ -98,6 +100,15 @@ export default class Snow extends Phaser.Scene {
 
     this.health = 1;
     this.tableHealth = this.add.text(22, 20, `Health: ${this.health}`, style);
+
+    this.pauseBtn = this.add.sprite(180, 5, 'pauseBtn').setOrigin(0, 0);
+    this.pauseBtn.setInteractive()
+      .on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN, () => {
+        this.pauseGame();
+      });
+    this.input.keyboard.on('keydown-P', () => {
+      this.pauseGame();
+    });
   }
 
   createSnowman() {
@@ -224,5 +235,11 @@ export default class Snow extends Phaser.Scene {
       this.scene.stop();
       this.scene.start('GameOver');
     }, 1000);
+  }
+
+  pauseGame() {
+    this.Memory.setPrevGame('SnowGame');
+    this.scene.pause();
+    this.scene.launch('PauseMenu');
   }
 }

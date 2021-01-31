@@ -63,6 +63,7 @@ const breakmap = require('../../../assets/image/breakmap.png');
 const fullscr = require('../../../assets/image/fullscreen.png');
 const muteon = require('../../../assets/image/muteon.png');
 const muteoff = require('../../../assets/image/muteoff.png');
+const pauseBtn = require('../../../assets/image/pauseBtn.png');
 
 export default class Preload extends Phaser.Scene {
   constructor() {
@@ -71,6 +72,7 @@ export default class Preload extends Phaser.Scene {
 
   preload() {
     this.load.image('defaultScreen', defaultScreen);
+    this.load.image('pauseBtn', pauseBtn);
     this.load.image('background', road);
     this.load.image('car', car);
     this.load.image('carPlayer', carPlayer);

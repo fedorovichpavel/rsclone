@@ -27,6 +27,8 @@ export default class Breakout extends Phaser.Scene {
 
   private punchSound: Phaser.Sound.BaseSound;
 
+  private pauseBtn: Phaser.GameObjects.Sprite;
+
   constructor() {
     super('breakout');
     this.Memory = new Memory();
@@ -68,6 +70,15 @@ export default class Breakout extends Phaser.Scene {
       }
     }, this);
     this.cursors = this.input.keyboard.createCursorKeys();
+
+    this.pauseBtn = this.add.sprite(180, 5, 'pauseBtn').setOrigin(0, 0);
+    this.pauseBtn.setInteractive()
+      .on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN, () => {
+        this.pauseGame();
+      });
+    this.input.keyboard.on('keydown-P', () => {
+      this.pauseGame();
+    });
   }
 
   hitBrick(ball, brick) {
@@ -139,5 +150,11 @@ export default class Breakout extends Phaser.Scene {
     }
     this.tableScore.text = `Score:${this.score}`;
     this.move();
+  }
+
+  private pauseGame() {
+    this.Memory.setPrevGame('breakout');
+    this.scene.pause();
+    this.scene.launch('PauseMenu');
   }
 }

@@ -23,7 +23,9 @@ export default class Tetris extends Phaser.Scene {
 
   private borderLeft: Phaser.GameObjects.Sprite;
 
-  private borderRight: Phaser.GameObjects.Sprite;;
+  private borderRight: Phaser.GameObjects.Sprite;
+
+  private pauseBtn: Phaser.GameObjects.Image;
 
   private group: Phaser.GameObjects.Group;
 
@@ -152,6 +154,15 @@ export default class Tetris extends Phaser.Scene {
       repeat: -1,
     });
     this.cursors = this.input.keyboard.createCursorKeys();
+
+    this.pauseBtn = this.add.sprite(180, 5, 'pauseBtn').setOrigin(0, 0);
+    this.pauseBtn.setInteractive()
+      .on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN, () => {
+        this.pauseGame();
+      });
+    this.input.keyboard.on('keydown-P', () => {
+      this.pauseGame();
+    });
   }
 
   tint() {
@@ -368,5 +379,11 @@ export default class Tetris extends Phaser.Scene {
       this.cursors.down.isDown = false;
       this.speed = 10;
     }
+  }
+
+  private pauseGame() {
+    this.Memory.setPrevGame('tetris');
+    this.scene.pause();
+    this.scene.launch('PauseMenu');
   }
 }
