@@ -1,7 +1,7 @@
 // eslint-disable-next-line func-names
 window.onload = function () {
   let articleClick = false;
-
+  let Gameprop = false;
   this.document.addEventListener('click', (event) => {
     const target = event.target.getAttribute('data-id');
     if (target === 'slide') {
@@ -24,6 +24,25 @@ window.onload = function () {
         articleClick = true;
       }
       // eslint-disable-next-line no-empty
-    } else { }
+    }
+    if (event.target.className.split(' ')[1] === 'desbtn') {
+      const tarClick = event.target.className.split(' ')[0];
+      const block:HTMLInputElement = document.querySelector(`.${tarClick}`);
+      const blockDiv:HTMLInputElement = document.querySelector(`.${tarClick} > div`);
+      if (!Gameprop) {
+        document.querySelectorAll('.content__gameProp > div').forEach((e:HTMLInputElement) => {
+          e.style.display = 'none';
+        });
+        block.style.display = 'block';
+        blockDiv.style.display = 'block';
+        Gameprop = !Gameprop;
+      } else {
+        blockDiv.style.display = 'none';
+        document.querySelectorAll('.content__gameProp > div').forEach((e:HTMLInputElement) => {
+          e.style.display = 'block';
+        });
+        Gameprop = !Gameprop;
+      }
+    }
   });
 };

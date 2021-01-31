@@ -15,6 +15,7 @@ export default class Logo {
     this.logotip = new ElementBuilder('div', 'tetris');
     this.insetSpans(4, this.logotip, null, null);
     this.name = new ElementBuilder('h1', null);
+
     this.insetSpans(6, this.name, 'sym', 'TETRIS');
     this.logotip.element.style.alignItems = 'center';
     this.container.append(this.logotip);
