@@ -98,9 +98,9 @@ export default class MainMenu extends Phaser.Scene {
     }, this);
 
     if (this.game.sound.mute) {
-      this.btnMute = this.add.image(50, 400, 'muteon', 0).setInteractive().setScale(0.35);
+      this.btnMute = this.add.image(50, 420, 'muteon', 0).setInteractive().setScale(0.25);
     } else if (!this.game.sound.mute) {
-      this.btnMute = this.add.image(50, 400, 'muteoff', 0).setInteractive().setScale(0.35);
+      this.btnMute = this.add.image(50, 420, 'muteoff', 0).setInteractive().setScale(0.25);
     }
   }
 
@@ -109,9 +109,9 @@ export default class MainMenu extends Phaser.Scene {
       this.game.sound.mute = !this.game.sound.mute;
     }, this);
     if (this.game.sound.mute) {
-      this.btnMute = this.add.image(50, 400, 'muteoff', 0).setInteractive().setScale(0.35);
+      this.btnMute = this.add.image(50, 420, 'muteoff', 0).setInteractive().setScale(0.25);
     } else if (!this.game.sound.mute) {
-      this.btnMute = this.add.image(50, 400, 'muteon', 0).setInteractive().setScale(0.35);
+      this.btnMute = this.add.image(50, 420, 'muteon', 0).setInteractive().setScale(0.25);
     }
   }
 }

@@ -35,7 +35,7 @@ export default class Login {
     const img = new ElementBuilder('img', 'avtar', ['src', user.avatar_url]);
     const a = new ElementBuilder('a', 'name', ['href', user.url]);
     a.element.text = user.login;
-    const signOutBtn = new ElementBuilder('button', '');
+    const signOutBtn = new ElementBuilder('button', 'signbtn');
     signOutBtn.element.innerHTML = 'Sign Out';
     signOutBtn.on('click', () => {
       window.location.href = 'http://localhost:8080/';
