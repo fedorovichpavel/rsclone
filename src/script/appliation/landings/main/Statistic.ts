@@ -8,14 +8,21 @@ export default class Statistic {
 
   public container: ElementBuilder;
 
+  private divTable: ElementBuilder;
+
   constructor() {
     this.App = new App();
     this.container = new ElementBuilder('div', 'content__stat blocks');
     const h2 = new ElementBuilder('h2', '');
     h2.element.innerHTML = 'Statistic';
-    const divtable = new ElementBuilder('div', 'tablediv');
+    this.createDivTable();
+    this.container.append(h2, this.divTable);
+  }
+
+  createDivTable() {
+    this.divTable = new ElementBuilder('div', 'tableDiv');
     const table1 = new ElementBuilder('div', 'table');
-    const tablecont = new ElementBuilder('div', 'tablecont');
+    const tableCont = new ElementBuilder('div', 'tableCont');
     const tableHeader = new ElementBuilder('table', 'table-header');
     const trHeader = new ElementBuilder('tr', 'trHeader');
     const th1 = new ElementBuilder('th', '');
@@ -60,12 +67,13 @@ export default class Statistic {
     thB9.element.innerHTML = '100';
     const thB10 = new ElementBuilder('th', '');
     thB10.element.innerHTML = '100';
-    trBody.append(thB1, thB2, thB3, thB4, thB5, thB6, thB7, thB8, thB9, thB10);
+    const thB11 = new ElementBuilder('th', '');
+    thB11.element.innerHTML = '100';
+    trBody.append(thB1, thB2, thB3, thB4, thB5, thB6, thB7, thB8, thB9, thB10, thB11);
 
-    this.container.append(h2, divtable);
-    divtable.append(table1);
-    table1.append(tablecont);
-    tablecont.append(tableHeader);
+    this.divTable.append(table1);
+    table1.append(tableCont);
+    tableCont.append(tableHeader);
     tableHeader.append(trHeader, trBody);
     trHeader.append(th1, th2, th3, th4, th5, th6, th7, th8, th9, th10);
   }
