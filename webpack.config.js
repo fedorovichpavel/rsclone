@@ -1,10 +1,9 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const webpack = require('webpack');
 
-const dev = 'development';
+const dev = 'production';
 
 module.exports = {
     mode: dev,
@@ -18,15 +17,7 @@ module.exports = {
         }),
         new CleanWebpackPlugin(),
         new webpack.HotModuleReplacementPlugin(),
-        new CopyWebpackPlugin({
-            patterns: [{
-                from: path.resolve(__dirname, 'src/assets/icon/favicon.png'),
-                to: path.resolve(__dirname, 'dist'),
-            }, {
-                from: path.resolve(__dirname, 'src/assets/image'),
-                to: path.resolve(__dirname, 'dist'),
-            }],
-        }),
+
     ],
     output: {
         path: path.resolve(__dirname, 'dist'),
