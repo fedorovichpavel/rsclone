@@ -3,7 +3,15 @@
 $article_family: 'Montserrat', sans-serif;
 $article_font_size: 16px;
 $article_font_size_header: 30px;
-
+// body.loaded {
+//   overflow: auto;
+// }
+div.article {
+  height: auto;
+}
+div.blocks {
+  border-radius: 20px;
+}
 .wrap-article {
   padding: 20px;
   line-height: 1.5;
@@ -53,11 +61,17 @@ $article_font_size_header: 30px;
     font-family: $article_family;
     font-size: $article_font_size;
     text-align: justify;
+    text-indent: 20px;
   }
 
   .article-authors,
   .article-data {
     padding: 10px 0;
+  }
+
+  strong {
+    font-family: $article_family;
+    font-size: $article_font_size;
   }
 
   .article-authors li{
@@ -70,7 +84,10 @@ $article_font_size_header: 30px;
   }
 
   .article-data {
+    font-family: $article_family;
+    font-size: $article_font_size;
     font-style: italic;
+    text-indent: 0;
   }
 
   .article-content,
@@ -95,6 +112,16 @@ $article_font_size_header: 30px;
 
   .article-item:last-child {
     margin-bottom: 0;
+  }
+
+  .list {
+    padding-left: 20px;
+  }
+
+  .list li {
+    font-family: $article_family;
+    font-size: $article_font_size;
+    margin-bottom: 10px;
   }
 
   .spoiler {
