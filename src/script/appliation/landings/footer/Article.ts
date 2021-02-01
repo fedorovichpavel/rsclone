@@ -37,13 +37,25 @@ export default class Article {
   }
 
   createArticleBlocks() {
-    const h2 = new ElementBuilder('h2', '');
-    const p1 = new ElementBuilder('p', '');
-    const p2 = new ElementBuilder('p', '');
-    h2.element.innerHTML = 'Article';
-    p1.element.innerHTML = 'An article is any member of a class of dedicated words that are used with noun phrases to mark the identifiability of the referents of the noun phrases. The category of articles constitutes a part of speech';
-    p2.element.innerHTML = 'In English, both "the" and "a" are articles, which combine with a noun to form a noun phrase. Articles typically specify grammatical definiteness of the noun phrase, but in many languages they carry additional grammatical information such as gender, number, and case. Articles are part of a broader category called determiners, which also include demonstratives, possessive determiners, and quantifiers. In linguistic interlinear glossing, articles are abbreviated as art';
-    this.container1.append(h2, p1, p2);
+
+    const wrap = new ElementBuilder('div', 'wrap-article');
+    const article = new ElementBuilder('article', '');
+    const header = new ElementBuilder('header', 'article-header');
+    const nav = new ElementBuilder('nav', 'article-nav');
+    const content = new ElementBuilder('div', 'article-content');
+
+    header.element.innerHTML = '<h3>OMG – Oh, My Games or a series of games "Tetris"</h3>';
+
+    // const h2 = new ElementBuilder('h2', '');
+    // const p1 = new ElementBuilder('p', '');
+    // const p2 = new ElementBuilder('p', '');
+    // h2.element.innerHTML = 'Article';
+    // p1.element.innerHTML = 'An article is any member of a class of dedicated words that are used with noun phrases to mark the identifiability of the referents of the noun phrases. The category of articles constitutes a part of speech';
+    // p2.element.innerHTML = 'In English, both "the" and "a" are articles, which combine with a noun to form a noun phrase. Articles typically specify grammatical definiteness of the noun phrase, but in many languages they carry additional grammatical information such as gender, number, and case. Articles are part of a broader category called determiners, which also include demonstratives, possessive determiners, and quantifiers. In linguistic interlinear glossing, articles are abbreviated as art';
+    // this.container1.append(wrap, h2, p1, p2);
+    this.container1.append(wrap);
+    wrap.append(article);
+    article.append(header, nav, content);
   }
 
   createFooterBlocks() {
