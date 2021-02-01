@@ -8,11 +8,13 @@ window.onload = function () {
       const article:HTMLInputElement = document.querySelector('.article');
       const content:HTMLInputElement = document.querySelector('.content');
       const page:HTMLInputElement = document.querySelector('.downPage');
+      const body:HTMLInputElement = document.querySelector('.loaded');
       if (articleClick) {
         // eslint-disable-next-line no-return-assign
         document.querySelectorAll('.scroll').forEach((e:HTMLInputElement) => e.style.transform = 'rotate(0)');
         content.style.top = '0';
         article.style.position = 'absolute'; article.style.top = '30rem';
+        body.style.overflow = 'hidden';
         page.style.top = '0';
         articleClick = false;
       } else {
@@ -20,6 +22,8 @@ window.onload = function () {
         document.querySelectorAll('.scroll').forEach((e:HTMLInputElement) => e.style.transform = 'rotate(180deg)');
         content.style.top = '-30rem';
         article.style.position = 'relative'; article.style.top = '0';
+        article.style.height = 'auto';
+        body.style.overflow = 'auto';
         page.style.top = '-66vh';
         articleClick = true;
       }
