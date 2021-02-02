@@ -3,6 +3,7 @@
 $article_family: 'Montserrat', sans-serif;
 $article_font_size: 16px;
 $article_font_size_header: 30px;
+$article_font_media_header: 24px;
 // body.loaded {
 //   overflow: auto;
 // }
@@ -146,4 +147,16 @@ div.blocks {
     }
   }
 
+}
+
+@media screen and (max-width: 560px) {
+  .wrap-article {
+    padding: 5px;
+  }
+  .wrap-article h3 {
+    font-size: $article_font_media_header;
+  }
+  .wrap-article article {
+    padding: 10px;
+  }
 }
