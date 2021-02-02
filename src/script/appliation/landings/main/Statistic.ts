@@ -45,24 +45,29 @@ export default class Statistic {
     tableCont.append(this.tableHeader);
   }
 
-  private updateStatistics() {
+  updateStatistics() {
     this.createDivTable();
     this.App.api.getListUsers().then((users:Array<UserDto>) => {
-      console.log(users);
-      for (let i = 0; i < 6; i += 1) {
+      users.sort((a, b) => a.totalScore - b.totalScore);
+      for (let i = 0; i < users.length; i += 1) {
         const trBody = new ElementBuilder('tr', 'trBody');
-        trBody.element.innerHTML = `<th>PLace</th>
-                                  <th>NickName</th>
-                                  <th>totalScore</th>
-                                  <th>race</th>
-                                  <th>tetris</th>
-                                  <th>breakout</th>
-                                  <th>flappyBird</th>
-                                  <th>spaceAttack</th>
-                                  <th>snake</th>
-                                  <th>snow</th>`;
+        trBody.element.innerHTML = `<th>${i + 1}</th>
+                                  <th class="iconAndLink">${this.addLink(users[i])}</th>
+                                  <th>${users[i].totalScore}</th>
+                                  <th>${users[i].race}</th>
+                                  <th>${users[i].tetris}</th>
+                                  <th>${users[i].breakout}</th>
+                                  <th>${users[i].flappyBird}</th>
+                                  <th>${users[i].spaceAttack}</th>
+                                  <th>${users[i].snake}</th>
+                                  <th>${users[i].snow}</th>`;
         this.tableHeader.append(trBody);
       }
     });
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  addLink(user:UserDto):string {
+    return `<img src="${user.avatar}"><a href="${user.url}" target="_blank">${user.login}</a>`;
   }
 }

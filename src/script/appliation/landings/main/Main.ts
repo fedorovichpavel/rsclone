@@ -14,7 +14,7 @@ export default class Main {
 
   public container: ElementBuilder;
 
-  private statisticBlock: Statistic;
+  public statisticBlock: Statistic;
 
   private gameBlock: Game;
 

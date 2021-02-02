@@ -16,13 +16,26 @@ export default class Api {
     return response;
   }
 
-  public readonly setScoreUser = async (id: string, user: UserDto) => {
-    const response = await axios.put(`${URL}/score${id}`, JSON.stringify(user)).then(((r: Promise<UserDto>) => r));
+  public readonly setScoreUser = async (user: UserDto) => {
+    const response = await axios.put(`${URL}/score/${user.node_id}`, {
+      node_id: user.node_id,
+      snake: user.snake,
+      race: user.race,
+      tetris: user.tetris,
+      spaceAttack: user.spaceAttack,
+      flappyBird: user.flappyBird,
+      snow: user.snow,
+      url: user.url,
+      avatar: user.avatar,
+      breakout: user.breakout,
+      login: user.login,
+      totalScore: user.totalScore,
+    }).then(((r: Promise<UserDto>) => r));
     return response;
   }
 
   public readonly auth = async (code) => {
-    const response = await axios.get(`https://score-api2020q3.herokuapp.com/login/github/${code}`);
+    const response = await axios.get(`${URL}/login/github/${code}`);
     return response.data;
   }
 }
