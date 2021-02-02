@@ -104,17 +104,24 @@ export default class Article {
 
   createFooterBlocks() {
     const div = new ElementBuilder('div', 'authors');
+    const div1 = new ElementBuilder('div', 'footerDiv1');
+    const div2 = new ElementBuilder('div', 'footerDiv2');
     const h3 = new ElementBuilder('h3', '');
     h3.element.innerHTML = 'Powered by:';
     const a1 = new ElementBuilder('a', 'animation', ['href', 'https://github.com/mig-marina']);
     const a2 = new ElementBuilder('a', 'animation', ['href', 'https://github.com/mikhail-hursky']);
     const a3 = new ElementBuilder('a', 'animation', ['href', 'https://github.com/fedorovichpavel']);
     const p = new ElementBuilder('p', '');
+    const footerLogoUrl = new ElementBuilder('a', '', ['href', 'https://rs.school/']);
+    const footerLogo = new ElementBuilder('img', '', ['src', 'rs.svg'],['alt', 'rs-logo']);
     p.element.innerHTML = '2021';
     a1.element.innerHTML = 'Marina M.';
     a2.element.innerHTML = 'Mikhail H.';
     a3.element.innerHTML = 'Pavel F.';
-    div.append(h3, a1, a2, a3, p);
+    footerLogoUrl.append(footerLogo);
+    div1.append(h3, a1, a2, a3);
+    div2.append(footerLogoUrl, p);
+    div.append(div1,div2);
     this.container2.append(div);
   }
 }

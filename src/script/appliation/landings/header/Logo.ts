@@ -20,17 +20,6 @@ export default class Logo {
     this.logotip.element.style.alignItems = 'center';
     this.container.append(this.logotip);
     this.container.append(this.name);
-
-    const lang = new ElementBuilder('div', 'lang');
-    const en = new ElementBuilder('div', 'langen');
-    en.element.innerHTML = '<p class="lanBtn en">EN</p>';
-    const ru = new ElementBuilder('div', 'langru');
-    ru.element.innerHTML = '<p class="lanBtn ru">RU</p>';
-    const by = new ElementBuilder('div', 'langby');
-    by.element.innerHTML = '<p class="lanBtn by">BY</p>';
-
-    this.container.append(lang);
-    lang.append(en, ru, by);
   }
 
   // eslint-disable-next-line class-methods-use-this
