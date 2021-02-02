@@ -18,7 +18,7 @@ const postEn = {
 
   progressTitle: '<h4>Development progress</h4>',
 
-  conclusionTitle: '<h4>Conclusion</h4>'
+  conclusionTitle: '<h4>Conclusion</h4>',
 };
 
 export default postEn;

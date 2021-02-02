@@ -31,7 +31,6 @@ export default class Logo {
 
     this.container.append(lang);
     lang.append(en, ru, by);
-
   }
 
   // eslint-disable-next-line class-methods-use-this

@@ -48,7 +48,7 @@ export default class Statistic {
   updateStatistics() {
     this.createDivTable();
     this.App.api.getListUsers().then((users:Array<UserDto>) => {
-      users.sort((a, b) => a.totalScore - b.totalScore);
+      users.sort((a, b) => b.totalScore - a.totalScore);
       for (let i = 0; i < users.length; i += 1) {
         const trBody = new ElementBuilder('tr', 'trBody');
         trBody.element.innerHTML = `<th>${i + 1}</th>

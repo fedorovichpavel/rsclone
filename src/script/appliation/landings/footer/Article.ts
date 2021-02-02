@@ -39,7 +39,6 @@ export default class Article {
   }
 
   createArticleBlocks() {
-
     const wrap = new ElementBuilder('div', 'wrap-article');
     const article = new ElementBuilder('article', '');
     wrap.append(article);

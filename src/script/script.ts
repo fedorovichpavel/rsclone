@@ -59,14 +59,14 @@ window.onload = function () {
     }
     if (event.target.className.split(' ')[0] === 'lanBtn') {
       const tarClick = event.target.className.split(' ')[1];
-      let btn:HTMLInputElement = document.querySelector(`.${tarClick}`),
-           en:HTMLInputElement = document.querySelector(`.langen`),
-       ru:HTMLInputElement = document.querySelector(`.langru`),
-      by:HTMLInputElement = document.querySelector(`.langby`);
+      const btn:HTMLInputElement = document.querySelector(`.${tarClick}`);
+      const en:HTMLInputElement = document.querySelector('.langen');
+      const ru:HTMLInputElement = document.querySelector('.langru');
+      const by:HTMLInputElement = document.querySelector('.langby');
 
       if (this.clickBtn) {
-        let clickbtn:HTMLInputElement = document.querySelector(`.lang${btn.innerHTML.toLowerCase()}`);
-        document.querySelectorAll(`.lang > div`).forEach((e:HTMLInputElement) => {
+        const clickbtn:HTMLInputElement = document.querySelector(`.lang${btn.innerHTML.toLowerCase()}`);
+        document.querySelectorAll('.lang > div').forEach((e:HTMLInputElement) => {
           e.style.zIndex = '1002';
           e.style.top = '0.82rem';
         });
@@ -89,10 +89,8 @@ window.onload = function () {
     tetrisDiv.style.animation = 'none';
     popupP.style.animation = 'none';
     document.querySelectorAll('.scroll').forEach((e:HTMLInputElement) => e.style.animation = 'none');
-    document.querySelectorAll(`.letter-1`).forEach(e => e.classList.remove('letter-1'));
-    document.querySelectorAll(`.letter-2`).forEach(e => e.classList.remove('letter-2'));
-    if (screen.width < 801) {page.style.top = '-3rem';}
- }
+    document.querySelectorAll('.letter-1').forEach((e) => e.classList.remove('letter-1'));
+    document.querySelectorAll('.letter-2').forEach((e) => e.classList.remove('letter-2'));
+    if (screen.width < 801) { page.style.top = '-3rem'; }
+  }
 };
-
-
