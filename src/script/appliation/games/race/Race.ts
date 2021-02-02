@@ -44,7 +44,7 @@ export default class Race extends Phaser.Scene {
   private isPaused: boolean;
 
   constructor() {
-    super('RaceGame');
+    super('race');
     this.Memory = new Memory();
     this.movementPX = 60;
   }
@@ -163,7 +163,7 @@ export default class Race extends Phaser.Scene {
     this.drivingSound.pause();
     this.scene.pause();
     this.Memory.setScorePoint(this.score);
-    this.Memory.setPrevGame('RaceGame');
+    this.Memory.setPrevGame('race');
     setTimeout(() => {
       this.scene.restart(this);
       this.scene.stop();
@@ -211,7 +211,7 @@ export default class Race extends Phaser.Scene {
 
   pauseGame() {
     this.drivingSound.pause();
-    this.Memory.setPrevGame('RaceGame');
+    this.Memory.setPrevGame('race');
     this.isPaused = true;
     this.scene.pause();
     this.scene.launch('PauseMenu');

@@ -1,5 +1,7 @@
 // @ts-ignore
 import Api from '../Api/Api.ts';
+// @ts-ignore
+import UserDto from './dto/UserDto.ts';
 
 export default class Memory {
   private static exists: any;
@@ -19,6 +21,8 @@ export default class Memory {
                     scene: any[] };
 
   public api: Api;
+
+  public user:UserDto;
 
   constructor() {
     if (Memory.exists) return Memory.instance;
@@ -50,5 +54,9 @@ export default class Memory {
   setConfig(config: {type: number, physics: {default: string},
     width: number, height: number, parent: string, scene: any[]}) {
     this.config = config;
+  }
+
+  setUser(user:UserDto) {
+    this.user = user;
   }
 }

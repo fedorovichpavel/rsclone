@@ -57,7 +57,7 @@ export default class Snow extends Phaser.Scene {
 
   constructor() {
     super({
-      key: 'SnowGame',
+      key: 'snow',
     });
     this.Memory = new Memory();
   }
@@ -229,7 +229,7 @@ export default class Snow extends Phaser.Scene {
   gameOver() {
     this.scene.pause();
     this.Memory.setScorePoint(this.score);
-    this.Memory.setPrevGame('SnowGame');
+    this.Memory.setPrevGame('snow');
     setTimeout(() => {
       this.scene.restart(this);
       this.scene.stop();
@@ -238,7 +238,7 @@ export default class Snow extends Phaser.Scene {
   }
 
   pauseGame() {
-    this.Memory.setPrevGame('SnowGame');
+    this.Memory.setPrevGame('snow');
     this.scene.pause();
     this.scene.launch('PauseMenu');
   }

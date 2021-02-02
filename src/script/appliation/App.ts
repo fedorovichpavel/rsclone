@@ -13,7 +13,7 @@ import { CONFIG } from '../utils/tools.ts';
 // @ts-ignore
 import Footer from './landings/footer/Footer.ts';
 // @ts-ignore
-import addAnumation from '../hovers.ts';
+import addAnimation from '../hovers.ts';
 
 export default class App {
   private static instance: App;
@@ -28,7 +28,7 @@ export default class App {
 
   public api: Api;
 
-  private main: Main;
+  public main: Main;
 
   private code: string;
 
@@ -51,7 +51,7 @@ export default class App {
     this.footer = new Footer();
     this.container.append(this.header.container, this.main.container, this.footer.container);
     this.container.appendToBody();
-    addAnumation();
+    addAnimation();
     if (this.isLogin) {
       // eslint-disable-next-line no-new
       new Phaser.Game(CONFIG);

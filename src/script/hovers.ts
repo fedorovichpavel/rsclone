@@ -1,4 +1,4 @@
-export default function addAnumation() {
+export default function addAnimation() {
   const text = document.querySelectorAll('.animation');
   const text1: HTMLInputElement = document.querySelector('.artText');
 

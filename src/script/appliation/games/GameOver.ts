@@ -3,6 +3,8 @@ import * as Phaser from 'phaser';
 import Memory from './Memory.ts';
 // @ts-ignore
 import CustomButton from './buttons/CustomButton.ts';
+// @ts-ignore
+import App from '../App.ts';
 
 const style = {
   fontFamily: 'Pixel',
@@ -32,13 +34,17 @@ export default class GameOver extends Phaser.Scene {
                     parent: string,
                     scene: any[]};
 
+  private App: App;
+
   constructor() {
     super('GameOver');
     this.Memory = new Memory();
+    this.App = new App();
     this.config = this.Memory.getConfig();
   }
 
   create() {
+    this.updateScore();
     this.overSound = this.sound.add('gameovermp3');
     this.overSound.play();
     this.add.tileSprite(0, 0, 220, 460, 'defaultScreen').setOrigin(0, 0);
@@ -64,5 +70,15 @@ export default class GameOver extends Phaser.Scene {
       .on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN, () => {
         this.scene.start('MainMenu');
       });
+  }
+
+  private updateScore() {
+    if (this.Memory.user[this.Memory.getPrevGame()] < this.Memory.getScorePoint()) {
+      this.Memory.user[this.Memory.getPrevGame()] = this.Memory.getScorePoint();
+      this.Memory.user.updateTotalScore();
+      this.App.api.setScoreUser(this.Memory.user).then(() => {
+        this.App.main.statisticBlock.updateStatistics();
+      });
+    }
   }
 }

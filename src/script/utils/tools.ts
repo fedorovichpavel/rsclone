@@ -60,3 +60,4 @@ export const CONFIG = {
     PauseMenu,
   ],
 };
+export const STATISTIC_HEADER = ['#', 'Github', 'Total Score', 'Race', 'Tetris', 'Breakout', 'Space Attack', 'Flappy Bird', 'Snake', 'Snow'];

@@ -34,7 +34,7 @@ export default class MainMenu extends Phaser.Scene {
 
     btnRaceGame.setInteractive()
       .on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN, () => {
-        this.scene.start('RaceGame');
+        this.scene.start('race');
       });
 
     const btnTetrisGame = new CustomButton(this, 110, 165, 'Tetris game');
@@ -70,7 +70,7 @@ export default class MainMenu extends Phaser.Scene {
 
     btnSnakeGame.setInteractive()
       .on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN, () => {
-        this.scene.start('SnakeGame');
+        this.scene.start('snake');
       });
 
     const btnSnowGame = new CustomButton(this, 110, 365, 'Snow game');
@@ -78,7 +78,7 @@ export default class MainMenu extends Phaser.Scene {
 
     btnSnowGame.setInteractive()
       .on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN, () => {
-        this.scene.start('SnowGame');
+        this.scene.start('snow');
       });
 
     const btnFullScreen = this.add.image(200, 20, 'fullscreen', 0).setInteractive().setScale(0.2);
