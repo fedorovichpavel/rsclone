@@ -66,9 +66,7 @@ export default class Snake extends Phaser.Scene {
   private pauseBtn: any;
 
   constructor() {
-    super({
-      key: 'SnakeGame',
-    });
+    super('snake');
     this.Memory = new Memory();
   }
 
@@ -360,7 +358,7 @@ export default class Snake extends Phaser.Scene {
   gameOver() {
     this.scene.pause();
     this.Memory.setScorePoint(this.score);
-    this.Memory.setPrevGame('SnakeGame');
+    this.Memory.setPrevGame('snake');
     setTimeout(() => {
       this.scene.restart(this);
       this.scene.stop();
@@ -369,7 +367,7 @@ export default class Snake extends Phaser.Scene {
   }
 
   private pauseGame() {
-    this.Memory.setPrevGame('SnakeGame');
+    this.Memory.setPrevGame('snake');
     this.scene.pause();
     this.scene.launch('PauseMenu');
   }

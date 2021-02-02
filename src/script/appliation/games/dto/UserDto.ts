@@ -1,25 +1,65 @@
+// @ts-ignore
+import Memory from '../Memory.ts';
+
 export default class UserDto {
-  _id: string
+  public readonly avatar: string;
 
-  scorePointTetris: number
+  public breakout: number;
 
-  scorePointRace: number
+  public flappyBird: number;
 
-  scorePointSnake: number
+  public readonly login: string;
 
-  scorePointTanks: number
+  // eslint-disable-next-line camelcase
+  public readonly node_id: string;
 
-  scorePointSpaceBreak: number
+  public race: number;
 
-  constructor(_id: string, scorePointTetris: number, scorePointRace: number,
-    scorePointSnake: number, scorePointTanks: number,
-    scorePointSpaceBreak: number) {
-    // eslint-disable-next-line no-underscore-dangle
-    this._id = _id;
-    this.scorePointTetris = scorePointTetris;
-    this.scorePointRace = scorePointRace;
-    this.scorePointSnake = scorePointSnake;
-    this.scorePointTanks = scorePointTanks;
-    this.scorePointSpaceBreak = scorePointSpaceBreak;
+  public snake: number;
+
+  public snow: number;
+
+  public spaceAttack: number;
+
+  public tetris: number;
+
+  public url: string;
+
+  public totalScore: number;
+
+  // eslint-disable-next-line max-len,camelcase
+  constructor(avatar: string,
+    breakout: number,
+    flappyBird: number,
+    login: string,
+    // eslint-disable-next-line camelcase
+    node_id: string,
+    race: number,
+    snake: number,
+    snow: number,
+    spaceAttack: number,
+    tetris: number,
+    url: string) {
+    this.avatar = avatar;
+    this.breakout = breakout;
+    this.flappyBird = flappyBird;
+    this.login = login;
+    // eslint-disable-next-line camelcase
+    this.node_id = node_id;
+    this.race = race;
+    this.snake = snake;
+    this.snow = snow;
+    this.spaceAttack = spaceAttack;
+    this.tetris = tetris;
+    this.url = url;
+    this.updateTotalScore();
+    const memory = new Memory();
+    memory.setUser(this);
+  }
+
+  public updateTotalScore() {
+    this.totalScore = this.breakout + this.flappyBird
+      + this.race + this.snake + this.snow
+      + this.spaceAttack + this.tetris;
   }
 }

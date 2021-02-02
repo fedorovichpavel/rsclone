@@ -2,6 +2,10 @@
 import App from '../../App.ts';
 // @ts-ignore
 import ElementBuilder from '../../../utils/ElementBuilder.ts';
+// @ts-ignore
+import Memory from '../../games/Memory.ts';
+// @ts-ignore
+import UserDto from '../../games/dto/UserDto.ts';
 
 export default class Login {
   private App: App;
@@ -32,12 +36,19 @@ export default class Login {
 
   // eslint-disable-next-line class-methods-use-this
   createUserBar(user) {
-    const img = new ElementBuilder('img', 'avtar', ['src', user.avatar_url]);
-    const a = new ElementBuilder('a', 'name', ['href', user.html_url]);
-    a.element.text = user.login;
+    const memory = new Memory();
+    const saveUser = new UserDto(user.avatar, user.breakout, user.flappyBird,
+      user.login, user.node_id, user.race, user.snake,
+      user.snow, user.spaceAttack, user.tetris, user.url);
+    memory.setUser(saveUser);
+
+    const img = new ElementBuilder('img', 'avtar', ['src', memory.user.avatar]);
+    const a = new ElementBuilder('a', 'name', ['href', memory.user.url]);
+    a.element.text = memory.user.login;
     const signOutBtn = new ElementBuilder('button', 'signbtn');
     signOutBtn.element.innerHTML = 'Sign Out';
     signOutBtn.on('click', () => {
+      // TODO поменять потом ссылку при диплое;
       window.location.href = 'http://localhost:8080/';
     });
     this.container.append(img, a, signOutBtn);
