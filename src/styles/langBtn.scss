@@ -1,0 +1,54 @@
+.lang {
+    margin: 0.1rem 3rem 0 auto;
+    .langen {
+        position: absolute;
+        top: 0.82rem;
+        z-index: 1003;
+        background: rgb(253, 228, 2);
+        border-radius: 20%;
+        height: 2rem;
+        width: 2rem;
+        text-align: center;
+        &:hover {
+            background: rgb(253, 123, 2);
+        }
+        p {
+            padding: 0.4rem;
+        }
+    }
+    .langru {
+        position: absolute;
+        top: 0.82rem;
+        z-index: 1002;
+        background: rgb(253, 228, 2);
+        border-radius: 20%;
+        height: 2rem;
+        width: 2rem;
+        text-align: center;
+        &:hover {
+            background: rgb(253, 123, 2);
+        }
+        p {
+            padding: 0.4rem;
+        }
+    }
+    .langby {
+        position: absolute;
+        top: 0.82rem;
+        z-index: 1001;
+        background: rgb(253, 228, 2);
+        border-radius: 20%;
+        height: 2rem;
+        width: 2rem;
+        text-align: center;
+        &:hover {
+            background: rgb(253, 123, 2);
+        }
+        p {
+            padding: 0.4rem;
+        }
+    }
+    &:hover {
+        cursor: pointer;
+    }
+}

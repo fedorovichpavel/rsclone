@@ -2,6 +2,7 @@
 window.onload = function () {
   let articleClick = false;
   let Gameprop = false;
+  this.clickBtn = false;
   this.document.addEventListener('click', (event) => {
     const target = event.target.getAttribute('data-id');
     if (target === 'slide') {
@@ -46,6 +47,27 @@ window.onload = function () {
           e.style.display = 'block';
         });
         Gameprop = !Gameprop;
+      }
+    }
+    if (event.target.className.split(' ')[0] === 'lanBtn') {
+      const tarClick = event.target.className.split(' ')[1];
+      let btn:HTMLInputElement = document.querySelector(`.${tarClick}`);
+      let en:HTMLInputElement = document.querySelector(`.langen`);
+      let ru:HTMLInputElement = document.querySelector(`.langru`);
+      let by:HTMLInputElement = document.querySelector(`.langby`);
+      if (this.clickBtn) {
+        let clickbtn:HTMLInputElement = document.querySelector(`.lang${btn.innerHTML.toLowerCase()}`);
+        document.querySelectorAll(`.lang > div`).forEach((e:HTMLInputElement) => {
+          e.style.zIndex = '1002';
+          e.style.top = '0.82rem';
+        });
+        clickbtn.style.zIndex = '1003';
+        this.clickBtn = false;
+      } else {
+        en.style.top = '0.82rem';
+        ru.style.top = '2.82rem';
+        by.style.top = '4.82rem';
+        this.clickBtn = true;
       }
     }
   });
