@@ -1,7 +1,0 @@
-const postBy = {
-  title: '<h3>OMG – Oh, My Games or a series of games "Tetris"</h3><ul class="article-authors"><li>Gursky Mikhail,</li><li>Fedorovich Pavel,</li><li>Migacheva Marina,</li></ul><p class="article-data">January, 2021</p>',
-  nav: '<ul><li><a href="#foreword">Foreword</a></li><li><a href="#description">Description of the project</a></li><li><a href="#teamwork">Organization of teamwork</a></li><li><a href="#architecture">Project architecture. Features of the implementation</a></li><li><a href="#progress">Development progress</a></li><li><a href="#conclusion">Conclusion</a></li></ul>',
-  foreword: '<h4>Foreword</h4><p>It so happened that we ended up with the same mentor, crossed paths during the study on various issues and decided to perform this task together. We all were on these courses for the first time and the goal of training for each of us is similar – to find ourselves in front-end development, to improve skills, participate in interesting projects and get a dream job.</p><p>Of the difficulties, the main one can be called – a large amount of information in a short time. On team projects it was more interesting, there was support and insurance from the team, it was possible to jointly discuss and solve many issues, share experience and receive it in return, the strengths of each of the team allowed us to make the project better.</p>',
-};
-
-export default postBy;
