@@ -51,12 +51,10 @@ export default class Article {
     const content = new ElementBuilder('div', 'article-content');
     article.append(header, nav, content);
 
-    const foreword = new ElementBuilder('div', '');
-    // foreword.setDataAtr('id', 'foreword');
+    const foreword = new ElementBuilder('div', '', ['id', 'foreword']);
     foreword.element.innerHTML = postEn.foreword;
 
-    const description = new ElementBuilder('div', '');
-    // description.setDataAtr('id', 'description');
+    const description = new ElementBuilder('div', '', ['id', 'description']);
     const descriptionTitle = new ElementBuilder('h4', '');
     descriptionTitle.element.innerHTML = postEn.descriptionTitle;
     const descriptionItemOne = new ElementBuilder('div', 'article-item');
@@ -66,9 +64,34 @@ export default class Article {
     const descriptionItemThree = new ElementBuilder('div', 'article-item');
     descriptionItemThree.element.innerHTML = postEn.descriptionItemThree;
     description.append(descriptionTitle, descriptionItemOne, descriptionItemTwo, descriptionItemThree);
+    const wrapImg1 = new ElementBuilder('div', 'wrap-img');
+    const articleImg1 = new ElementBuilder('img', '', ['src', 'screen01.png'],['alt', '']);
+    wrapImg1.append(articleImg1);
+    const descriptionItemThree2 = new ElementBuilder('div', '');
+    descriptionItemThree2.element.innerHTML = postEn.descriptionItemThree2;
+    const wrapImg2 = new ElementBuilder('div', 'wrap-img');
+    const articleImg2 = new ElementBuilder('img', '', ['src', 'screen02.png'],['alt', '']);
+    wrapImg2.append(articleImg2);
+    const descriptionItemThree3 = new ElementBuilder('div', '');
+    descriptionItemThree3.element.innerHTML = postEn.descriptionItemThree3;
+    const wrapImg3 = new ElementBuilder('div', 'wrap-img');
+    const articleImg3 = new ElementBuilder('img', '', ['src', 'screen03.png'],['alt', '']);
+    wrapImg3.append(articleImg3);
+    const descriptionItemThree4 = new ElementBuilder('div', '');
+    descriptionItemThree4.element.innerHTML = postEn.descriptionItemThree4;
+    const wrapImg4 = new ElementBuilder('div', 'wrap-img');
+    const articleImg4 = new ElementBuilder('img', '', ['src', 'screen04.png'],['alt', '']);
+    wrapImg4.append(articleImg4);
+    const descriptionItemThree5 = new ElementBuilder('div', '');
+    descriptionItemThree5.element.innerHTML = postEn.descriptionItemThree5;
+    const wrapImg5 = new ElementBuilder('div', 'wrap-img');
+    const articleImg5 = new ElementBuilder('img', '', ['src', 'screen05.png'],['alt', '']);
+    wrapImg5.append(articleImg5);
+    const descriptionItemThree6 = new ElementBuilder('div', '');
+    descriptionItemThree6.element.innerHTML = postEn.descriptionItemThree6;
+    description.append(wrapImg1, descriptionItemThree2, wrapImg2, descriptionItemThree3, wrapImg3, descriptionItemThree4, wrapImg4, descriptionItemThree5, wrapImg5, descriptionItemThree6);
 
-    const teamWork = new ElementBuilder('div', '');
-    // teamWork.setDataAtr('id', 'teamwork');
+    const teamWork = new ElementBuilder('div', '', ['id', 'teamWork']);
     const teamWorkTitle = new ElementBuilder('h4', '');
     teamWorkTitle.element.innerHTML = postEn.teamWorkTitle;
     const teamWorkItemOne = new ElementBuilder('div', 'article-item');
@@ -79,23 +102,85 @@ export default class Article {
     teamWorkItemThree.element.innerHTML = postEn.teamWorkItemThree;
     teamWork.append(teamWorkTitle, teamWorkItemOne, teamWorkItemTwo, teamWorkItemThree);
 
-    const architecture = new ElementBuilder('div', '');
-    // architecture.setDataAtr('id', 'architecture');
+    const architecture = new ElementBuilder('div', '', ['id', 'architecture']);
     const architectureTitle = new ElementBuilder('h4', '');
     architectureTitle.element.innerHTML = postEn.architectureTitle;
-    architecture.append(architectureTitle);
+    const architectureItemOne = new ElementBuilder('div', 'article-item');
+    architectureItemOne.element.innerHTML = postEn.architectureItemOne;
 
-    const progress = new ElementBuilder('div', '');
-    // progress.setDataAtr('id', 'progress');
+    const architectureItemTwo = new ElementBuilder('div', 'article-item');
+    const architectureItemTwoTitle = new ElementBuilder('div', '');
+    architectureItemTwoTitle.element.innerHTML = postEn.architectureItemTwoTitle;
+
+    const architectureItemTwo1 = new ElementBuilder('div', '');
+    architectureItemTwo1.element.innerHTML = postEn.architectureItemTwo1;
+    const wrapImg6 = new ElementBuilder('div', 'wrap-img');
+    const articleImg6 = new ElementBuilder('img', '', ['src', 'screen06.png'],['alt', '']);
+    wrapImg6.append(articleImg6);
+    const architectureItemTwo2 = new ElementBuilder('div', '');
+    architectureItemTwo2.element.innerHTML = postEn.architectureItemTwo2;
+
+    const architectureItemTwo3 = new ElementBuilder('div', '');
+    architectureItemTwo3.element.innerHTML = postEn.architectureItemTwo3;
+    const wrapImg7 = new ElementBuilder('div', 'wrap-img');
+    const articleImg7 = new ElementBuilder('img', '', ['src', 'screen07.png'],['alt', '']);
+    wrapImg7.append(articleImg7);
+    const architectureItemTwo4 = new ElementBuilder('div', '');
+    architectureItemTwo4.element.innerHTML = postEn.architectureItemTwo4;
+
+    const architectureItemTwo5 = new ElementBuilder('div', '');
+    architectureItemTwo5.element.innerHTML = postEn.architectureItemTwo5;
+    const wrapImg8 = new ElementBuilder('div', 'wrap-img');
+    const articleImg8 = new ElementBuilder('img', '', ['src', 'screen08.png'],['alt', '']);
+    wrapImg8.append(articleImg8);
+    const architectureItemTwo6 = new ElementBuilder('div', '');
+    architectureItemTwo6.element.innerHTML = postEn.architectureItemTwo6;
+
+    const architectureItemTwo7 = new ElementBuilder('div', '');
+    architectureItemTwo7.element.innerHTML = postEn.architectureItemTwo7;
+    const wrapImg9 = new ElementBuilder('div', 'wrap-img');
+    const articleImg9 = new ElementBuilder('img', '', ['src', 'screen09.png'],['alt', '']);
+    wrapImg9.append(articleImg9);
+    const architectureItemTwo8 = new ElementBuilder('div', '');
+    architectureItemTwo8.element.innerHTML = postEn.architectureItemTwo8;
+    const wrapImg10 = new ElementBuilder('div', 'wrap-img');
+    const articleImg10 = new ElementBuilder('img', '', ['src', 'screen10.png'],['alt', '']);
+    wrapImg10.append(articleImg10);
+    const architectureItemTwo9 = new ElementBuilder('div', '');
+    architectureItemTwo9.element.innerHTML = postEn.architectureItemTwo9;
+    const wrapImg11 = new ElementBuilder('div', 'wrap-img');
+    const articleImg11 = new ElementBuilder('img', '', ['src', 'screen11.png'],['alt', '']);
+    wrapImg11.append(articleImg11);
+
+    architectureItemTwo.append(architectureItemTwoTitle,  architectureItemTwo1, wrapImg6, architectureItemTwo2, architectureItemTwo3, wrapImg7, architectureItemTwo4, architectureItemTwo5, wrapImg8, architectureItemTwo6, architectureItemTwo7, wrapImg9, architectureItemTwo8, wrapImg10, architectureItemTwo9, wrapImg11);
+
+    const architectureItemThree = new ElementBuilder('div', 'article-item');
+    architectureItemThree.element.innerHTML = postEn.architectureItemThree;
+
+    architecture.append(architectureTitle, architectureItemOne, architectureItemTwo, architectureItemThree);
+
+    const progress = new ElementBuilder('div', '', ['id', 'progress']);
     const progressTitle = new ElementBuilder('h4', '');
     progressTitle.element.innerHTML = postEn.progressTitle;
-    progress.append(progressTitle);
+    const progressItemOne = new ElementBuilder('div', 'article-item');
+    progressItemOne.element.innerHTML = postEn.progressItemOne;
+    const progressItemTwo = new ElementBuilder('div', 'article-item');
+    progressItemTwo.element.innerHTML = postEn.progressItemTwo;
+    const progressItemThree = new ElementBuilder('div', 'article-item');
+    progressItemThree.element.innerHTML = postEn.progressItemThree;
+    const progressItemFour = new ElementBuilder('div', 'article-item');
+    progressItemFour.element.innerHTML = postEn.progressItemFour;
+    progress.append(progressTitle, progressItemOne, progressItemTwo, progressItemThree, progressItemFour);
 
-    const conclusion = new ElementBuilder('div', '');
-    // conclusion.setDataAtr('id', 'conclusion');
+    const conclusion = new ElementBuilder('div', '', ['id', 'conclusion']);
     const conclusionTitle = new ElementBuilder('h4', '');
     conclusionTitle.element.innerHTML = postEn.conclusionTitle;
-    conclusion.append(conclusionTitle);
+    const conclusionItemOne = new ElementBuilder('div', 'article-item');
+    conclusionItemOne.element.innerHTML = postEn.conclusionItemOne;
+    const wrapImgEnd = new ElementBuilder('div', 'wrap-img');
+    const articleImgEnd = new ElementBuilder('img', '', ['src', 'imgEnd.png'],['alt', '']);
+    wrapImgEnd.append(articleImgEnd);
+    conclusion.append(conclusionTitle, conclusionItemOne, wrapImgEnd);
 
     content.append(foreword, description, teamWork, architecture, progress, conclusion);
 
