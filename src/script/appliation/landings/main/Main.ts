@@ -40,7 +40,7 @@ export default class Main {
   createPopUpModule() {
     const popUp = new ElementBuilder('div', 'popup');
     const h2 = new ElementBuilder('h2', '');
-    h2.element.innerHTML = 'Please, <a href="https://github.com/login/oauth/authorize?client_id=b04b335d696a08b29eb3"><p class="popup__p">login</p></a> to play';
+    h2.element.innerHTML = '<b>Please, <a href="https://github.com/login/oauth/authorize?client_id=b04b335d696a08b29eb3">login</a></b><b>to play</b>';
     popUp.append(h2);
     this.container.append(popUp);
   }
