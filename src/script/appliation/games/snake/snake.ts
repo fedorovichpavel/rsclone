@@ -65,6 +65,8 @@ export default class Snake extends Phaser.Scene {
 
   private pauseBtn: any;
 
+  private cursors: Phaser.Types.Input.Keyboard.CursorKeys;
+
   constructor() {
     super('snake');
     this.Memory = new Memory();
@@ -123,11 +125,9 @@ export default class Snake extends Phaser.Scene {
       elem.sprite = this.add.sprite(dataX, dataY, elem.name);
       return elem;
     });
-
+    this.cursors = this.input.keyboard.createCursorKeys();
     this.createMice();
     this.createFlowers();
-
-    this.input.keyboard.on('keydown', this.handleKey, this);
 
     this.score = 0;
     this.tableScore = this.add.text(22, 0, `Score: ${this.score}`, style);
@@ -205,6 +205,8 @@ export default class Snake extends Phaser.Scene {
         last.sprite.setTexture(last.name);
       }
     }
+
+    this.moveSnake();
 
     this.levelUp();
 
@@ -309,42 +311,45 @@ export default class Snake extends Phaser.Scene {
     this.direction = this.snake[this.snake.length - 1].direction;
   }
 
-  handleKey(e) {
-    switch (e.code) {
-      case 'this.swipe.left':
-      case 'ArrowLeft':
-        if (this.direction === 'right') {
-          this.reverse();
-        } else {
-          this.direction = 'left';
-        }
-        break;
-      case 'this.swipe.right':
-      case 'ArrowRight':
-        if (this.direction === 'left') {
-          this.reverse();
-        } else {
-          this.direction = 'right';
-        }
-        break;
-      case 'this.swipe.up':
-      case 'ArrowUp':
-        if (this.direction === 'down') {
-          this.reverse();
-        } else {
-          this.direction = 'up';
-        }
-        break;
-      case 'this.swipe.down':
-      case 'ArrowDown':
-        if (this.direction === 'up') {
-          this.reverse();
-        } else {
-          this.direction = 'down';
-        }
-        break;
-      default:
-        break;
+  moveSnake() {
+    if (this.cursors.right.isDown || this.swipe.right) {
+      this.cursors.right.isDown = false;
+
+      if (this.direction === 'left') {
+        this.reverse();
+      } else {
+        this.direction = 'right';
+      }
+    }
+
+    if (this.cursors.left.isDown || this.swipe.left) {
+      this.cursors.left.isDown = false;
+
+      if (this.direction === 'right') {
+        this.reverse();
+      } else {
+        this.direction = 'left';
+      }
+    }
+
+    if (this.cursors.up.isDown || this.swipe.up) {
+      this.cursors.up.isDown = false;
+
+      if (this.direction === 'down') {
+        this.reverse();
+      } else {
+        this.direction = 'up';
+      }
+    }
+
+    if (this.cursors.down.isDown || this.swipe.down) {
+      this.cursors.down.isDown = false;
+
+      if (this.direction === 'up') {
+        this.reverse();
+      } else {
+        this.direction = 'down';
+      }
     }
   }
 
