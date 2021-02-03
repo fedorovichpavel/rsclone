@@ -166,11 +166,17 @@ export default class Article {
     progressItemOne.element.innerHTML = postEn.progressItemOne;
     const progressItemTwo = new ElementBuilder('div', 'article-item');
     progressItemTwo.element.innerHTML = postEn.progressItemTwo;
+    const wrapImgLog = new ElementBuilder('div', 'wrap-img');
+    const articleImgLog = new ElementBuilder('img', '', ['src', 'changeLog.png'],['alt', '']);
+    wrapImgLog.append(articleImgLog);
     const progressItemThree = new ElementBuilder('div', 'article-item');
     progressItemThree.element.innerHTML = postEn.progressItemThree;
+    const wrapImgLog2 = new ElementBuilder('div', 'wrap-img');
+    const articleImgLog2 = new ElementBuilder('img', '', ['src', 'in.png'],['alt', '']);
+    wrapImgLog2.append(articleImgLog2);
     const progressItemFour = new ElementBuilder('div', 'article-item');
     progressItemFour.element.innerHTML = postEn.progressItemFour;
-    progress.append(progressTitle, progressItemOne, progressItemTwo, progressItemThree, progressItemFour);
+    progress.append(progressTitle, progressItemOne, progressItemTwo, wrapImgLog, wrapImgLog2, progressItemThree, progressItemFour);
 
     const conclusion = new ElementBuilder('div', '', ['id', 'conclusion']);
     const conclusionTitle = new ElementBuilder('h4', '');
