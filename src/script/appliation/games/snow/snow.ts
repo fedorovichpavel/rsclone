@@ -86,7 +86,8 @@ export default class Snow extends Phaser.Scene {
 
     this.createSnowballs(this.countSnowballs);
 
-    this.createBombs(this.countBombs);
+    const bool = false;
+    this.createBombs(this.countBombs, bool);
 
     this.physics.add.collider(this.snowman, this.platforms);
 
@@ -156,19 +157,31 @@ export default class Snow extends Phaser.Scene {
     this.physics.add.overlap(this.snowman, this.snowballs, this.collectSnowballs, null, this);
   }
 
-  createBombs(count) {
+  createBombs(count, bool) {
+    if(bool) {
     const [itemX, itemY] = this.getXY();
-    for (let i = 0; i < count; i += 1) {
-      this.bombs = this.physics.add.group();
-      this.physics.add.collider(this.bombs, this.platforms);
-      this.physics.add.collider(this.snowman, this.bombs, this.hitBomb, null, this);
-
-      // const x = (this.snowman.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
-      const bomb = this.bombs.create(itemX, itemY, 'bomb');
-      bomb.setBounce(1);
-      bomb.setCollideWorldBounds(true);
-      bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
+    this.getBombs(itemX, itemY);
+    } else {
+      const bool = Math.round(Math.random());
+      let itemX;
+      let itemY;
+      itemX = Phaser.Math.Between(0, 200);
+      itemY = 0;
+      for (let i = 0; i < count; i += 1) {
+        this.getBombs(itemX, itemY);
+      }
     }
+  }
+
+  getBombs(itemX, itemY) {
+    this.bombs = this.physics.add.group();
+    this.physics.add.collider(this.bombs, this.platforms);
+    this.physics.add.collider(this.snowman, this.bombs, this.hitBomb, null, this);
+
+    const bomb = this.bombs.create(itemX, itemY, 'bomb');
+    bomb.setBounce(1);
+    bomb.setCollideWorldBounds(true);
+    bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
   }
 
   update() {
@@ -190,7 +203,8 @@ export default class Snow extends Phaser.Scene {
     this.health -= 5;
     bomb.disableBody(true, true);
     const number = 1;
-    this.createBombs(number);
+    const bool = true;
+    this.createBombs(number, bool);
   }
 
   collectSnowballs(player, snowball) {

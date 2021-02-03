@@ -77,7 +77,7 @@ export default class Snake extends Phaser.Scene {
     this.cellSize = 20;
     this.gameHeight = this.cellSize * this.boardSizeY;
     this.gameWidth = this.cellSize * this.boardSizeX;
-    this.speed = 500;
+    this.speed = 350;
 
     this.mice = [];
     this.flowers = [];
@@ -215,7 +215,7 @@ export default class Snake extends Phaser.Scene {
 
   levelUp() {
     if (this.score === 3) {
-      this.speed = 400;
+      this.speed = 330;
     }
     if (this.score === 5) {
       this.startMouseNumber = 2;
