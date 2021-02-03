@@ -111,11 +111,11 @@ export default class CurrentGame {
     const snowh21 = new ElementBuilder('h2', '');
     const snowp1 = new ElementBuilder('p', '');
     snowh21.element.innerHTML = 'Description:';
-    snowp1.element.innerHTML = 'a snake runs across the field, mice appear randomly on the field, which it must eat. For each mouse eaten, points are awarded and the length of the snake itself increases. Also, obstacles (flowers) are randomly formed on the field, the task is not to stumble upon them with a snake. Also, the snake should not touch its body during movement - all this leads to the end of the game.';
+    snowp1.element.innerHTML = 'the player can move around the field, collecting snowballs, which allow them to accumulate health (plus 1 unit for each snowball). Starting health - 1 unit. When hit by a bomb, 5 health points are removed. The game ends if the player spends more health than he has accumulated. Snowballs and bombs are generated at the start of the game and are added randomly 1 piece per field upon collision with the player. Physics of gravity and collision works. Points are awarded for the number of snowballs collected.';
     const snowh22 = new ElementBuilder('h2', '');
     const snowp2 = new ElementBuilder('p', '');
     snowh22.element.innerHTML = 'Control:';
-    snowp2.element.innerHTML = 'up, down, right, left arrows - which allows you to change the trajectory of the player and allows you to jump. To interrupt the game - the space bar.';
+    snowp2.element.innerHTML = 'up, down, right, left arrows - which allows you to change the trajectory of the player and allows you to jump. If you are tired, no need to cry, you can give up. To stop suffering press the space bar.';
     const snowh23 = new ElementBuilder('h2', '');
     const snowp3 = new ElementBuilder('p', '');
     snowh23.element.innerHTML = 'Levels:';
