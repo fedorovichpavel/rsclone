@@ -75,7 +75,7 @@ export default class App {
     if (this.code) {
       if (localStorage.getItem('CODE_LOGIN') === this.code) {
         this.isLogin = false;
-        window.location.href = 'http://localhost:8080/';
+        window.location.href = 'https://mikhail-hursky.github.io/rsclone/dist/';
       } else {
         localStorage.setItem('CODE_LOGIN', this.code);
         this.isLogin = true;
