@@ -3,7 +3,7 @@ import App from '../../App.ts';
 // @ts-ignore
 import ElementBuilder from '../../../utils/ElementBuilder.ts';
 // @ts-ignore
-import { STATISTIC_HEADER } from '../../../utils/tools.ts';
+import {STATISTIC_HEADER} from '../../../utils/tools.ts';
 // @ts-ignore
 import UserDto from '../../games/dto/UserDto.ts';
 
@@ -14,15 +14,15 @@ export default class Statistic {
 
   private divTable: ElementBuilder;
 
-  private tableHeader: ElementBuilder;
-
   private divTableDiv: ElementBuilder;
 
-  private trBody:Array<ElementBuilder>;
+  private trBody: Array<ElementBuilder>;
 
   private divTableCont: ElementBuilder;
 
   private table: ElementBuilder;
+
+  private preload: ElementBuilder;
 
   constructor() {
     this.App = new App();
@@ -47,7 +47,7 @@ export default class Statistic {
   }
 
   // eslint-disable-next-line class-methods-use-this
-  addLink(user:UserDto):string {
+  addLink(user: UserDto): string {
     return `<img src="${user.avatar}"><a href="${user.url}" target="_blank">${user.login}</a>`;
   }
 
@@ -56,8 +56,8 @@ export default class Statistic {
       this.trBody.forEach((el) => el.remove());
       this.trBody = [];
     }
-
-    this.App.api.getListUsers().then((users:Array<UserDto>) => {
+    this.onPreloader();
+    this.App.api.getListUsers().then((users: Array<UserDto>) => {
       users.sort((a, b) => b.totalScore - a.totalScore);
 
       for (let i = 0; i < users.length; i += 1) {
@@ -78,6 +78,7 @@ export default class Statistic {
       }
 
       this.table.append(...this.trBody);
+      this.offPreloader();
     });
   }
 
@@ -89,5 +90,16 @@ export default class Statistic {
       trHeader.append(th);
     }
     this.table.append(trHeader);
+  }
+
+  onPreloader() {
+    this.preload = new ElementBuilder('div', 'background');
+    const arrow = new ElementBuilder('div', 'rotate');
+    this.preload.append(arrow);
+    this.divTableDiv.append(this.preload);
+  }
+
+  offPreloader() {
+    this.preload.remove();
   }
 }

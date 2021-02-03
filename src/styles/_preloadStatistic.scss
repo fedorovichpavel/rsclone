@@ -1,0 +1,44 @@
+.background {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  filter: brightness(40%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .rotate {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: 5px solid skyblue;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    animation-name: rotate;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+
+    &:before {
+      position: absolute;
+      top: 25px;
+      left: 14px;
+      content: "";
+      display: block;
+      transform: rotate(-45deg);
+      border: 8px solid transparent;
+      border-right-color: skyblue;
+    }
+  }
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
