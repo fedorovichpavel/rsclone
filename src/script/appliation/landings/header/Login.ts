@@ -48,8 +48,7 @@ export default class Login {
     const signOutBtn = new ElementBuilder('button', 'signbtn');
     signOutBtn.element.innerHTML = 'Sign Out';
     signOutBtn.on('click', () => {
-      // TODO поменять потом ссылку при диплое;
-      window.location.href = 'http://localhost:8080/';
+      window.location.href = 'https://mikhail-hursky.github.io/rsclone/dist/';
     });
     this.container.append(img, a, signOutBtn);
   }
