@@ -158,9 +158,9 @@ export default class Snow extends Phaser.Scene {
   }
 
   createBombs(count, bool) {
-    if(bool) {
-    const [itemX, itemY] = this.getXY();
-    this.getBombs(itemX, itemY);
+    if (bool) {
+      const [itemX, itemY] = this.getXY();
+      this.getBombs(itemX, itemY);
     } else {
       const bool = Math.round(Math.random());
       let itemX;

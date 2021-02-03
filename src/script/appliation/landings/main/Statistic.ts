@@ -16,58 +16,78 @@ export default class Statistic {
 
   private tableHeader: ElementBuilder;
 
+  private divTableDiv: ElementBuilder;
+
+  private trBody:Array<ElementBuilder>;
+
+  private divTableCont: ElementBuilder;
+
+  private table: ElementBuilder;
+
   constructor() {
     this.App = new App();
     this.container = new ElementBuilder('div', 'content__stat blocks');
     const h2 = new ElementBuilder('h2', '');
     h2.element.innerHTML = 'Statistic';
-    this.updateStatistics();
-    this.container.append(h2, this.divTable);
+    this.divTableDiv = new ElementBuilder('div', 'tableDiv');
+    this.trBody = [];
+    this.createDivTable();
+    this.container.append(h2, this.divTableDiv);
   }
 
   createDivTable() {
-    this.divTable = new ElementBuilder('div', 'tableDiv');
-    const table1 = new ElementBuilder('div', 'table');
-    const tableCont = new ElementBuilder('div', 'tableCont');
-    this.tableHeader = new ElementBuilder('table', 'table-header');
-    this.tableHeader.element.innerHTML = '';
-    const trHeader = new ElementBuilder('tr', 'trHeader');
-
-    for (let i = 0; i < STATISTIC_HEADER.length; i += 1) {
-      const th = new ElementBuilder('th', '');
-      th.element.innerHTML = STATISTIC_HEADER[i];
-      trHeader.append(th);
-    }
-
-    this.tableHeader.append(trHeader);
-    this.divTable.append(table1);
-    table1.append(tableCont);
-    tableCont.append(this.tableHeader);
-  }
-
-  updateStatistics() {
-    this.createDivTable();
-    this.App.api.getListUsers().then((users:Array<UserDto>) => {
-      users.sort((a, b) => b.totalScore - a.totalScore);
-      for (let i = 0; i < users.length; i += 1) {
-        const trBody = new ElementBuilder('tr', 'trBody');
-        trBody.element.innerHTML = `<th>${i + 1}</th>
-                                  <th class="iconAndLink">${this.addLink(users[i])}</th>
-                                  <th>${users[i].totalScore}</th>
-                                  <th>${users[i].race}</th>
-                                  <th>${users[i].tetris}</th>
-                                  <th>${users[i].breakout}</th>
-                                  <th>${users[i].flappyBird}</th>
-                                  <th>${users[i].spaceAttack}</th>
-                                  <th>${users[i].snake}</th>
-                                  <th>${users[i].snow}</th>`;
-        this.tableHeader.append(trBody);
-      }
-    });
+    this.divTable = new ElementBuilder('div', 'table');
+    this.divTableCont = new ElementBuilder('div', 'tableCont');
+    this.table = new ElementBuilder('table', 'table-header');
+    this.divTableCont.append(this.table);
+    this.divTable.append(this.divTableCont);
+    this.divTableDiv.append(this.divTable);
+    this.createHeaderTable();
+    this.createStatisticUsers();
   }
 
   // eslint-disable-next-line class-methods-use-this
   addLink(user:UserDto):string {
     return `<img src="${user.avatar}"><a href="${user.url}" target="_blank">${user.login}</a>`;
+  }
+
+  createStatisticUsers() {
+    if (this.trBody) {
+      this.trBody.forEach((el) => el.remove());
+      this.trBody = [];
+    }
+
+    this.App.api.getListUsers().then((users:Array<UserDto>) => {
+      users.sort((a, b) => b.totalScore - a.totalScore);
+
+      for (let i = 0; i < users.length; i += 1) {
+        const tr = new ElementBuilder('tr', 'trBody');
+
+        tr.element.innerHTML = `<th>${i + 1}</th>
+                                  <th class="iconAndLink">${this.addLink(users[i])}</th>
+                                  <th>${users[i].totalScore}</th>
+                                  <th>${users[i].race}</th>
+                                  <th>${users[i].tetris}</th>
+                                  <th>${users[i].breakout}</th>
+                                  <th>${users[i].spaceAttack}</th>
+                                  <th>${users[i].flappyBird}</th>
+                                  <th>${users[i].snake}</th>
+                                  <th>${users[i].snow}</th>`;
+
+        this.trBody.push(tr);
+      }
+
+      this.table.append(...this.trBody);
+    });
+  }
+
+  createHeaderTable() {
+    const trHeader = new ElementBuilder('tr', 'trHeader');
+    for (let i = 0; i < STATISTIC_HEADER.length; i += 1) {
+      const th = new ElementBuilder('th', '');
+      th.element.innerHTML = STATISTIC_HEADER[i];
+      trHeader.append(th);
+    }
+    this.table.append(trHeader);
   }
 }

@@ -113,7 +113,7 @@ export default class Article {
     const a3 = new ElementBuilder('a', 'animation', ['href', 'https://github.com/fedorovichpavel']);
     const p = new ElementBuilder('p', '');
     const footerLogoUrl = new ElementBuilder('a', '', ['href', 'https://rs.school/']);
-    const footerLogo = new ElementBuilder('img', '', ['src', 'rs.svg'],['alt', 'rs-logo']);
+    const footerLogo = new ElementBuilder('img', '', ['src', 'rs.svg'], ['alt', 'rs-logo']);
     p.element.innerHTML = '2021';
     a1.element.innerHTML = 'Marina M.';
     a2.element.innerHTML = 'Mikhail H.';
@@ -121,7 +121,7 @@ export default class Article {
     footerLogoUrl.append(footerLogo);
     div1.append(h3, a1, a2, a3);
     div2.append(footerLogoUrl, p);
-    div.append(div1,div2);
+    div.append(div1, div2);
     this.container2.append(div);
   }
 }

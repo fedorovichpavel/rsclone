@@ -77,7 +77,7 @@ export default class GameOver extends Phaser.Scene {
       this.Memory.user[this.Memory.getPrevGame()] = this.Memory.getScorePoint();
       this.Memory.user.updateTotalScore();
       this.App.api.setScoreUser(this.Memory.user).then(() => {
-        this.App.main.statisticBlock.updateStatistics();
+        this.App.main.statisticBlock.createStatisticUsers();
       });
     }
   }

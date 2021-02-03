@@ -18,7 +18,7 @@ window.onload = function () {
           article.style.position = 'absolute'; article.style.top = '30rem';
           body.style.overflow = 'hidden';
           page.style.position = 'relative';
-            page.style.top = '0';
+          page.style.top = '0';
           articleClick = false;
         } else {
           // eslint-disable-next-line no-return-assign
@@ -65,10 +65,10 @@ window.onload = function () {
     const popupP:HTMLInputElement = document.querySelector('.popup__p');
     const page:HTMLInputElement = document.querySelector('.downPage');
     tetrisDiv.style.animation = 'none';
-    if (popupP) {popupP.style.animation = 'none'; }
+    if (popupP) { popupP.style.animation = 'none'; }
     document.querySelectorAll('.scroll').forEach((e:HTMLInputElement) => e.style.animation = 'none');
     document.querySelectorAll('.letter-1').forEach((e) => e.classList.remove('letter-1'));
     document.querySelectorAll('.letter-2').forEach((e) => e.classList.remove('letter-2'));
-    //if (screen.width < 801) { page.style.top = '-3rem'; }
+    // if (screen.width < 801) { page.style.top = '-3rem'; }
   }
 };
